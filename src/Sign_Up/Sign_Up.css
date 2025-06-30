@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+}
+
+.Sign_Up-outer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add this wrapper for centered padding */
+.Sign_Up-center-padding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0 32px 0; /* Top & bottom padding */
+    width: 100%;
+}
+
+.Sign_Up-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.Sign_Up-login {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 1.35rem;
+}
+
+.Sign_Up-login .login-link {
+    color: #169edb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.2s;
+}
+
+.Sign_Up-login .login-link:hover {
+    text-decoration: underline;
+}
+
+.Sign_Up-form-container {
+    margin-top: 28px;
+    padding: 38px 34px 30px 34px;
+    background: #e7fdff;
+    border-radius: 0px;
+    box-shadow: none;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Sign_UpForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.Sign_Up-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 11px;
+}
+
+.Sign_Up-form-group label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 3px;
+}
+
+.Sign_Up-form-group input,
+.Sign_Up-form-group select {
+    padding: 8px 10px;
+    border: 2px solid #888;
+    border-radius: 0;
+    font-size: 1.08rem;
+    background: #f4f4f4;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.Sign_Up-form-group input:focus,
+.Sign_Up-form-group select:focus {
+    border-color: #13a3d7;
+}
+
+.Sign_Up-form-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.Sign_Up-submit-btn {
+    background: #13a3d7;
+    color: #fff;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0px;
+    padding: 4px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 130px;
+    margin-bottom: 0;
+    transition: background 0.2s;
+}
+
+.Sign_Up-submit-btn:hover {
+    background: #1189b9;
+}
+
+.Sign_Up-reset-btn {
+    background: #ff3b3b;
+    color: #fff;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0px;
+    padding: 4px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 130px;
+    margin-top: 0;
+    transition: background 0.2s;
+}
+
+.Sign_Up-reset-btn:hover {
+    background: #d92e2e;
+}
