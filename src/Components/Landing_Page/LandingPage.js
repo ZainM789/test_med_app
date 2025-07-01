@@ -6,7 +6,6 @@ import "./LandingPage.css";
 const Landing_Page = () => {
   return (
     <>
-      <Navbar /> {/* Integrate Navbar at the top */}
       <section className="hero-section">
         <div>
           <div data-aos="fade-up" className="flex-hero">
