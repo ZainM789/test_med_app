@@ -1,37 +1,38 @@
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-logo">
-                <a href="../Landing_Page/LandingPage.html" className="logo-link">
+                <Link to="/" className="logo-link">
                     <span className="logo-text">Medic4U</span>
-                </a>
+                </Link>
             </div>
             <ul className="navbar-menu">
                 <li>
-                    <a href="../Landing_Page/LandingPage.html" className="navbar-link" id="appointments-link">
+                    <Link to="/appointments" className="navbar-link" id="appointments-link">
                         <i className="fa-regular fa-calendar"></i>
                         Appointments
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="../Landing_Page/LandingPage.html" className="navbar-link" id="reviews-link">
+                    <Link to="/reviews" className="navbar-link" id="reviews-link">
                         <i className="fa-solid fa-book"></i>
                         Reviews
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="../Sign_Up/Sign_Up.html" className="navbar-link" id="Sign_Up-link">
+                    <Link to="/signup" className="navbar-link" id="Sign_Up-link">
                         <i className="fa-solid fa-user"></i>
                         Sign Up
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="../Login/Login.html" className="navbar-link" id="Login-link">
+                    <Link to="/login" className="navbar-link" id="Login-link">
                         <i className="fa-solid fa-right-to-bracket"></i>
                         Login
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </nav>

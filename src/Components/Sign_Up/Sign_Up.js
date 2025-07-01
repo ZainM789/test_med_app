@@ -3,11 +3,11 @@
 // Form validation & submit handler
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('signupForm');
+    const phoneField = document.getElementById('phone');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Simple validation (HTML5 will check 'required', this is extra for demo)
         let valid = true;
         const fields = ['role', 'name', 'phone', 'password'];
         fields.forEach(id => {
@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // PHONE NUMBER: must be exactly 10 digits
+        const phoneValue = phoneField.value.trim();
+        if (!/^\d{10}$/.test(phoneValue)) {
+            phoneField.style.borderColor = '#ff3b3b';
+            alert('Phone number must be exactly 10 digits.');
+            return;
+        }
+
         if (!valid) {
             alert('Please fill out all required fields.');
             return;
@@ -31,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     form.addEventListener('reset', function() {
-        // Reset border color
         ['role', 'name', 'phone', 'password'].forEach(id => {
             document.getElementById(id).style.borderColor = '#888';
         });
