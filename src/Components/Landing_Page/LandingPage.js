@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// eslint-disable-next-line
 import Navbar from "../Navbar/Navbar"; // Adjust path as per your file structure
 import "./LandingPage.css";
 
