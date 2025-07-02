@@ -12,6 +12,10 @@ import Navbar from './Components/Navbar/Navbar';
 // Import LandingPage component (fix: use PascalCase for import & usage)
 import LandingPage from './Components/Landing_Page/LandingPage';
 
+// Import SignUp and Login components
+import SignUp from './Components/SignUp/SignUp';
+import Login from './Components/Login/Login';
+
 // Function component for the main App
 function App() {
 
@@ -27,7 +31,9 @@ function App() {
           <Routes>
             {/* Define LandingPage as the Home route */}
             <Route path="/" element={<LandingPage/>}/>
-            {/* Define individual Route components for different pages */}
+            {/* Define SignUp and Login routes */}
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>
     </div>

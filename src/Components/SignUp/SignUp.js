@@ -1,9 +1,9 @@
-import './Sign_Up.css';
+import './SignUp.css';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 
-const Sign_Up = () => {
+const SignUp = () => {
   // State variables for form fields
   const [role, setRole] = useState('');
   const [name, setName] = useState('');
@@ -59,16 +59,16 @@ const Sign_Up = () => {
   };
 
   return (
-    <div className="Sign_Up-outer">
+    <div className="SignUp-outer">
       <main>
-        <div className="Sign_Up-center-padding">
-          <h1 className="Sign_Up-title">Sign Up</h1>
-          <p className="Sign_Up-login">
+        <div className="SignUp-center-padding">
+          <h1 className="SignUp-title">Sign Up</h1>
+          <p className="SignUp-login">
             Already a member? <Link to="/login" className="login-link">Login</Link>
           </p>
-          <div className="Sign_Up-form-container">
-            <form id="Sign_UpForm" autoComplete="off" onSubmit={register}>
-              <div className="Sign_Up-form-group">
+          <div className="SignUp-form-container">
+            <form id="SignUpForm" autoComplete="off" onSubmit={register}>
+              <div className="SignUp-form-group">
                 <label htmlFor="role">Role</label>
                 <select
                   id="role"
@@ -82,7 +82,7 @@ const Sign_Up = () => {
                   <option value="Patient">Patient</option>
                 </select>
               </div>
-              <div className="Sign_Up-form-group">
+              <div className="SignUp-form-group">
                 <label htmlFor="name">Name</label>
                 <input
                   type="text"
@@ -94,7 +94,7 @@ const Sign_Up = () => {
                   required
                 />
               </div>
-              <div className="Sign_Up-form-group">
+              <div className="SignUp-form-group">
                 <label htmlFor="phone">Email</label>
                 <input
                   type="email"
@@ -106,7 +106,7 @@ const Sign_Up = () => {
                   required
                 />
               </div>
-              <div className="Sign_Up-form-group">
+              <div className="SignUp-form-group">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
@@ -118,10 +118,10 @@ const Sign_Up = () => {
                   required
                 />
               </div>
-              {errMsg && <div className="Sign_Up-error" style={{ color: 'red', marginBottom: '8px' }}>{errMsg}</div>}
-              <div className="Sign_Up-form-buttons">
-                <button type="submit" className="Sign_Up-submit-btn">Submit</button>
-                <button type="button" className="Sign_Up-reset-btn" onClick={handleReset}>Reset</button>
+              {errMsg && <div className="SignUp-error" style={{ color: 'red', marginBottom: '8px' }}>{errMsg}</div>}
+              <div className="SignUp-form-buttons">
+                <button type="submit" className="SignUp-submit-btn">Submit</button>
+                <button type="button" className="SignUp-reset-btn" onClick={handleReset}>Reset</button>
               </div>
             </form>
           </div>
@@ -131,4 +131,4 @@ const Sign_Up = () => {
   );
 };
 
-export default Sign_Up;
+export default SignUp;
