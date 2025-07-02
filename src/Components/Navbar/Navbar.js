@@ -23,7 +23,7 @@ function Navbar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/Sign_Up" className="navbar-link" id="Sign_Up-link">
+                    <Link to="/SignUp" className="navbar-link" id="SignUp-link">
                         <i className="fa-solid fa-user"></i>
                         Sign Up
                     </Link>
