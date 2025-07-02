@@ -1,134 +1,157 @@
-import './Sign_Up.css';
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { API_URL } from '../../config';
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+}
 
-const Sign_Up = () => {
-  // State variables for form fields
-  const [role, setRole] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [errMsg, setErrMsg] = useState('');
-  const navigate = useNavigate();
+.Sign_Up-outer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-  // Handle form submission
-  const register = async (e) => {
-    e.preventDefault();
-    if (!role) {
-      setErrMsg('Please select your role.');
-      return;
-    }
-    const response = await fetch(`${API_URL}/api/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        role,
-        name,
-        email: phone,  // Adjust as needed to use a real email, not just phone
-        password,
-        phone,
-      }),
-    });
-    const json = await response.json();
-    if (json.authtoken) {
-      sessionStorage.setItem("auth-token", json.authtoken);
-      sessionStorage.setItem("name", name);
-      sessionStorage.setItem("phone", phone);
-      sessionStorage.setItem("email", phone);
-      navigate("/");
-      window.location.reload();
-    } else {
-      if (json.errors) {
-        setErrMsg(json.errors[0].msg);
-      } else {
-        setErrMsg(json.error);
-      }
-    }
-  };
+main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-  // Reset form
-  const handleReset = () => {
-    setRole('');
-    setName('');
-    setPhone('');
-    setPassword('');
-    setErrMsg('');
-  };
+/* Centered padding for Sign Up card */
+.Sign_Up-center-padding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0 32px 0; /* Top & bottom padding */
+    width: 100%;
+}
 
-  return (
-    <div className="Sign_Up-outer">
-      <main>
-        <div className="Sign_Up-center-padding">
-          <h1 className="Sign_Up-title">Sign Up</h1>
-          <p className="Sign_Up-login">
-            Already a member? <Link to="/login" className="login-link">Login</Link>
-          </p>
-          <div className="Sign_Up-form-container">
-            <form id="Sign_UpForm" autoComplete="off" onSubmit={register}>
-              <div className="Sign_Up-form-group">
-                <label htmlFor="role">Role</label>
-                <select
-                  id="role"
-                  name="role"
-                  value={role}
-                  onChange={e => setRole(e.target.value)}
-                  required
-                >
-                  <option value="" disabled>Select your role</option>
-                  <option value="Doctor">Doctor</option>
-                  <option value="Patient">Patient</option>
-                </select>
-              </div>
-              <div className="Sign_Up-form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div className="Sign_Up-form-group">
-                <label htmlFor="phone">Email</label>
-                <input
-                  type="email"
-                  id="phone"
-                  name="phone"
-                  value={phone}
-                  onChange={e => setPhone(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-              <div className="Sign_Up-form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  placeholder="Enter your password"
-                  required
-                />
-              </div>
-              {errMsg && <div className="Sign_Up-error" style={{ color: 'red', marginBottom: '8px' }}>{errMsg}</div>}
-              <div className="Sign_Up-form-buttons">
-                <button type="submit" className="Sign_Up-submit-btn">Submit</button>
-                <button type="button" className="Sign_Up-reset-btn" onClick={handleReset}>Reset</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
-};
+.Sign_Up-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
 
-export default Sign_Up;
+.Sign_Up-login {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 1.35rem;
+}
+
+.Sign_Up-login .login-link {
+    color: #169edb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.2s;
+}
+
+.Sign_Up-login .login-link:hover {
+    text-decoration: underline;
+}
+
+/* The "blue rectangle" card style */
+.Sign_Up-form-container {
+    margin-top: 28px;
+    padding: 38px 34px 30px 34px;
+    background: #e3f0ff;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.08);
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Sign_UpForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.Sign_Up-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 11px;
+}
+
+.Sign_Up-form-group label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 3px;
+}
+
+.Sign_Up-form-group input,
+.Sign_Up-form-group select {
+    padding: 8px 10px;
+    border: 2px solid #888;
+    border-radius: 0;
+    font-size: 1.08rem;
+    background: #f4f4f4;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.Sign_Up-form-group input:focus,
+.Sign_Up-form-group select:focus {
+    border-color: #13a3d7;
+}
+
+.Sign_Up-form-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.Sign_Up-submit-btn {
+    background: #13a3d7;
+    color: #fff;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    width: 180px;
+    margin-bottom: 0;
+    transition: background 0.2s;
+}
+
+.Sign_Up-submit-btn:hover {
+    background: #1189b9;
+}
+
+.Sign_Up-reset-btn {
+    background: #fff;
+    color: #13a3d7;
+    font-size: 1.3rem;
+    border: 2px solid #13a3d7;
+    border-radius: 7px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    width: 180px;
+    margin-top: 0;
+    transition: background 0.2s, color 0.2s;
+}
+
+.Sign_Up-reset-btn:hover {
+    background: #e3f0ff;
+    color: #1189b9;
+}
+
+.Sign_Up-error {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
