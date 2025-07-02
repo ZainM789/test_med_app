@@ -43,7 +43,7 @@ const Login = () => {
     }
   };
 
-  // Add this handler:
+  // Added onReset handler
   const handleReset = () => {
     setEmail('');
     setPassword('');
