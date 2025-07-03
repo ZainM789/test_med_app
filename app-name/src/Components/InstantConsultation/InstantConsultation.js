@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './InstantConsultation.css';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import FindDoctorSearchIC from './FindDoctorSearchIC/FindDoctorSearchIC';
@@ -10,7 +10,6 @@ const InstantConsultation = () => {
     const [filteredDoctors, setFilteredDoctors] = useState([]);
     const [isSearched, setIsSearched] = useState(false);
     
-    // eslint-disable-next-line
     const getDoctorsDetails = () => {
         fetch('https://api.npoint.io/9a5543d36f1460da2f63')
         .then(res => res.json())
@@ -50,18 +49,14 @@ const InstantConsultation = () => {
             window.location.reload()
         }
     };
-    // eslint-disable-next-line
     const navigate = useNavigate();
     useEffect(() => {
-        const getDoctorsDetails = () => {
-            // ...your logic for fetching doctor details
-        };
         getDoctorsDetails();
         // const authtoken = sessionStorage.getItem("auth-token");
         // if (!authtoken) {
         //     navigate("/login");
         // }
-    }, [searchParams]);
+    }, [searchParams])
 
     return (
         <center>
