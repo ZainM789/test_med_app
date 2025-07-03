@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -10,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
-// eslint-disable-next-line
+
   const handleBooking = () => {
     setShowModal(true);
   };
