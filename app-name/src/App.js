@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import InstantConsultation from './Components/InstantConsultation/InstantConsultation';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           Learn React
         </a>
       </header>
+      {/* Instant Consultation Component Rendered Below the Header */}
+      <InstantConsultation />
     </div>
   );
 }

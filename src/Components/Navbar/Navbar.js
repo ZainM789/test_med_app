@@ -6,6 +6,7 @@ const Navbar = () => {
   // State for mobile nav and authentication
   const [click, setClick] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // eslint-disable-next-line
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
 
