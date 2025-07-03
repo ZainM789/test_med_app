@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './FindDoctorSearchIC.css';
-// eslint-disable-next-line
 import { useNavigate, Navigate } from 'react-router-dom';
 
 
@@ -11,7 +10,6 @@ const initSpeciality = [
 const FindDoctorSearchIC = () => {
     const [doctorResultHidden, setDoctorResultHidden] = useState(true);
     const [searchDoctor, setSearchDoctor] = useState('');
-    // eslint-disable-next-line
     const [specialities, setSpecialities] = useState(initSpeciality);
     const navigate = useNavigate();
     const handleDoctorSelect = (speciality) => {
