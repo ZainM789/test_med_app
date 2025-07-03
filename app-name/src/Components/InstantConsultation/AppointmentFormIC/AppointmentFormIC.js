@@ -3,9 +3,8 @@ import React, { useState } from 'react'
 const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    // eslint-disable-next-line
     const [selectedSlot, setSelectedSlot] = useState(null);
-    // eslint-disable-next-line
+  
     const handleSlotSelection = (slot) => {
       setSelectedSlot(slot);
     };
