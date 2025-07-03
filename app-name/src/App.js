@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import InstantConsultation from './Components/InstantConsultation/InstantConsultation';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
-      {/* Instant Consultation Component Rendered Below the Header */}
-      <InstantConsultation />
+      <Routes>
+        <Route path="/instant-consultation" element={<InstantConsultation />} />
+      </Routes>   
     </div>
   );
 }
