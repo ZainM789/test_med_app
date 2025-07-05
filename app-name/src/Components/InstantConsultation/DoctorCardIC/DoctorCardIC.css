@@ -119,8 +119,6 @@
     display: none;
 }
 
-
-
 }
 .modal-btn:hover {
   background-color: #0d8af5;
@@ -139,7 +137,9 @@
 
 .cancel-appointment-btn:hover {
   background-color: #d63027;
+  text-align: center;
 }
+
 .appointment-form {
   max-width: 400px;
   margin: 0 auto;
