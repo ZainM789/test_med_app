@@ -30,7 +30,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     } else {
       console.log('Date input does not exist in DOM');
     }
-  }, []);
+  }, [appointmentDate]);
 
   const handleDateChange = (e) => {
     const dateValue = e.target.value;
