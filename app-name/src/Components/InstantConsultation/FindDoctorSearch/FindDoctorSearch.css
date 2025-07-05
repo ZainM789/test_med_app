@@ -1,0 +1,136 @@
+.find-doctor-search {
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    position: relative;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .search-bar-wrapper {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid #b5b5b5;
+    border-radius: 7px 7px 0 0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(80, 80, 80, 0.08);
+  }
+  
+  .search-bar-input {
+    flex: 1;
+    font-size: 1rem;
+    padding: 10px 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #272727;
+    letter-spacing: 0.01em;
+  }
+  
+  .search-bar-input::placeholder {
+    color: #a5a5a5;
+    opacity: 1;
+    font-size: 1rem;
+  }
+  
+  .search-bar-icon-btn {
+    background: #fff;
+    border: none;
+    border-left: 1px solid #e0e0e0;
+    height: 100%;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .search-bar-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1.5px solid #b5b5b5;
+    border-top: none;
+    border-radius: 0 0 7px 7px;
+    box-shadow: 0 8px 24px rgba(80, 80, 80, 0.08);
+    z-index: 10;
+    max-height: 320px;
+    overflow-y: auto;
+    animation: fadeIn 0.18s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+    border-bottom: 1px solid #ededed;
+    cursor: pointer;
+    transition: background 0.13s;
+    background: #fff;
+    gap: 16px;
+  }
+  
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-item:hover {
+    background: #f4f6fa;
+  }
+  
+  .dropdown-item-icon img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 50%;
+    background: #f0f0f5;
+    padding: 6px;
+    border: 1px solid #eaeaea;
+  }
+  
+  .dropdown-item-speciality {
+    flex: 1;
+    font-size: 1rem;
+    color: #232323;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  
+  .dropdown-item-type {
+    font-size: 0.93em;
+    color: #8a8a8a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  
+  .dropdown-no-result {
+    padding: 18px;
+    color: #adadad;
+    text-align: center;
+    font-size: 1em;
+    background: #fff;
+  }
+  
+  @media (max-width: 600px) {
+    .find-doctor-search {
+      max-width: 98vw;
+      margin: 24px 1vw;
+    }
+    .dropdown-item {
+      padding: 13px 10px;
+      gap: 8px;
+    }
+  }
