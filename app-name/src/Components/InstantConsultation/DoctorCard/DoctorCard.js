@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import './DoctorCard.css';
-import AppointmentForm from './AppointmentForm';
+import AppointmentForm from '../AppointmentForm/AppointmentForm';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
 const defaultProfilePic =
   "https://images.unsplash.com/photo-1511174511562-5f97f4f9c6b0?fit=crop&w=400&q=80";
-
 const DoctorCard = ({
   name = "Dr. John Doe",
   speciality = "General Physician",
@@ -17,16 +15,17 @@ const DoctorCard = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointment, setAppointment] = useState(null);
-
+  
   const handleFormSubmit = (appointmentData) => {
+    console.log("Appointment Data:", appointmentData); // Verification log
     setAppointment(appointmentData);
     setShowModal(false);
   };
-
+  
   const handleCancel = () => {
     setAppointment(null);
   };
-
+  
   return (
     <div className="doctor-card-container">
       <div className="doctor-card-details-container">
@@ -47,7 +46,6 @@ const DoctorCard = ({
             <span className="star">&#9733;</span> {ratings} / 5
           </div>
         </div>
-
         <div>
           <Popup
             trigger={
@@ -67,8 +65,8 @@ const DoctorCard = ({
                     <h3>Appointment Booked!</h3>
                     <p>Name: {appointment.name}</p>
                     <p>Phone Number: {appointment.phoneNumber}</p>
-                    <p>Date: {appointment.appointmentDate}</p>
-                    <p>Time Slot: {appointment.slot}</p>
+                    <p>Date: {appointment.appointmentDate || 'No date selected'}</p>
+                    <p>Time Slot: {appointment.slot || 'No time slot selected'}</p>
                     <button onClick={() => { handleCancel(); close(); }}>
                       Cancel Appointment
                     </button>
@@ -85,20 +83,18 @@ const DoctorCard = ({
           </Popup>
         </div>
       </div>
-
       {/* ✅ Show appointment summary below card if booked */}
       {appointment && (
         <div className="appointment-summary">
           <h4>Booked Appointment Details:</h4>
           <p><strong>Name:</strong> {appointment.name}</p>
           <p><strong>Phone:</strong> {appointment.phoneNumber}</p>
-          <p><strong>Date:</strong> {appointment.appointmentDate}</p>
-          <p><strong>Time Slot:</strong> {appointment.slot}</p>
+          <p><strong>Date:</strong> {appointment.appointmentDate || 'No date selected'}</p>
+          <p><strong>Time Slot:</strong> {appointment.slot || 'No time slot selected'}</p>
           <button onClick={handleCancel}>Cancel Appointment</button>
         </div>
       )}
     </div>
   );
 };
-
 export default DoctorCard;
