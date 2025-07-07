@@ -2,15 +2,11 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-
-// Components
-import InstantConsultation from './Components/InstantConsultation/InstantConsultation';
-import BookingConsultation from './Components/InstantConsultation/BookingConsultation';
+import InstantConsultation from './Components/InstantConsultation/InstantConsultation'; // Assuming InstantConsultation.js exists within InstantConsultation folder
+import BookingConsultation from './Components/InstantConsultation/BookingConsultation'; // Assuming BookingConsultation.js exists within InstantConsultation folder
 import Notification from './Components/Notification/Notification';
-
-// Add your other components
-import Login from './Components/Auth/Login'; // example path
-import SignUp from './Components/Auth/SignUp'; // example path
+import Login from './Components/Login/Login'; 
+import SignUp from './Components/SignUp/SignUp'; 
 
 function App() {
   return (
