@@ -1,0 +1,238 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+/* Header specific styles */
+header {
+    background-color: #8B5CF6; /* bg-purple-600 */
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 0.5rem; /* rounded-b-lg */
+    border-bottom-right-radius: 0.5rem; /* rounded-b-lg */
+}
+
+.header-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem; /* space-x-1 */
+    padding: 0.5rem;
+    border-radius: 0.375rem; /* rounded-md */
+    transition: background-color 0.15s ease-in-out;
+}
+
+.header-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* hover:bg-white/10 */
+}
+
+/* Main content area */
+main {
+    max-width: 960px; /* container mx-auto */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem; /* p-6 */
+    margin-top: 2rem; /* mt-8 */
+}
+
+h1 {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: #B91C1C; /* text-red-700 */
+    text-align: center;
+    margin-bottom: 2rem; /* mb-8 */
+}
+
+/* Table specific styles */
+.table-container {
+    background-color: white;
+    padding: 1.5rem; /* p-6 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    overflow-x: auto;
+}
+
+table {
+    min-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 0.5rem; /* rounded-lg */
+    overflow: hidden; /* Ensures rounded corners on table */
+}
+
+thead {
+    background-color: #DBEAFE; /* bg-blue-100 */
+}
+
+th, td {
+    padding: 1rem 1.5rem; /* px-6 py-3 / px-6 py-4 */
+    text-align: left;
+    border-bottom: 1px solid #E5E7EB; /* divide-y divide-gray-200 */
+    white-space: nowrap;
+}
+
+th {
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 500; /* font-medium */
+    color: #374151; /* text-gray-700 */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* tracking-wider */
+}
+
+th:first-child {
+    border-top-left-radius: 0.5rem; /* rounded-tl-lg */
+}
+
+th:last-child {
+    border-top-right-radius: 0.5rem; /* rounded-tr-lg */
+}
+
+td {
+    font-size: 0.875rem; /* text-sm */
+    color: #1F2937; /* text-gray-900 */
+}
+
+td img {
+    height: 2.5rem; /* h-10 */
+    width: 2.5rem; /* w-10 */
+    border-radius: 9999px; /* rounded-full */
+    flex-shrink: 0;
+}
+
+.give-review-button {
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    background-color: #3B82F6; /* bg-blue-500 */
+    color: white;
+    border-radius: 0.375rem; /* rounded-md */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.give-review-button:hover {
+    background-color: #2563EB; /* hover:bg-blue-600 */
+}
+
+.give-review-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 0 0 6px rgba(59, 130, 246, 0.2); /* focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 */
+}
+
+.review-submitted-text {
+    font-size: 0.875rem; /* text-sm */
+    color: #6B7280; /* text-gray-500 */
+}
+
+.check-icon {
+    color: #22C55E; /* text-green-500 */
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* To center the SVG */
+}
+
+/* Modal specific styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0; /* inset-0 */
+    background-color: rgba(107, 114, 128, 0.5); /* bg-gray-600 bg-opacity-50 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 1rem; /* p-4 */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem; /* p-8 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+    width: 100%;
+    max-width: 28rem; /* max-w-md */
+}
+
+.modal-content h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #1F2937; /* text-gray-800 */
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+.modal-content p {
+    color: #4B5563; /* text-gray-600 */
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.modal-content label {
+    display: block;
+    color: #374151; /* text-gray-700 */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.modal-content textarea {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow */
+    appearance: none;
+    border: 1px solid #D1D5DB; /* border */
+    border-radius: 0.25rem; /* rounded */
+    width: 100%;
+    padding: 0.5rem 0.75rem; /* py-2 px-3 */
+    color: #374151; /* text-gray-700 */
+    line-height: 1.25; /* leading-tight */
+    height: 8rem; /* h-32 */
+    resize: vertical; /* resize-none, but allowing vertical resize for user comfort */
+}
+
+.modal-content textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem; /* space-x-4 */
+    margin-top: 1rem;
+}
+
+.modal-button {
+    padding: 0.5rem 1.5rem; /* px-6 py-2 */
+    border-radius: 0.375rem; /* rounded-md */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.modal-button.cancel {
+    border: 1px solid #D1D5DB; /* border border-gray-300 */
+    color: #374151; /* text-gray-700 */
+    background-color: white;
+}
+
+.modal-button.cancel:hover {
+    background-color: #F9FAFB; /* hover:bg-gray-50 */
+}
+
+.modal-button.cancel:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.5), 0 0 0 6px rgba(209, 213, 219, 0.2); /* focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 */
+}
+
+.modal-button.submit {
+    background-color: #16A34A; /* bg-green-600 */
+    color: white;
+}
+
+.modal-button.submit:hover {
+    background-color: #15803D; /* hover:bg-green-700 */
+}
+
+.modal-button.submit:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.5), 0 0 0 6px rgba(22, 163, 74, 0.2); /* focus:ring-2 focus:ring-green-600 focus:ring-offset-2 */
+}
