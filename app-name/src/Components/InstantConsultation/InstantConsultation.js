@@ -57,8 +57,7 @@ const InstantConsultation = () => {
         // if (!authtoken) {
         //     navigate("/login");
         // }
-        // eslint-disable-next-line
-    }, [searchParams, navigate]); // <-- include navigate in dependency array if used above
+    }, [searchParams, navigate]); // include navigate in dependency array
 
     return (
         <center>

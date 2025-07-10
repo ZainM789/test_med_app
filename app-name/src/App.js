@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import Notification from './Components/Notification/Notification';
 import LandingPage from './Components/Landing_Page/LandingPage';
@@ -11,11 +10,11 @@ import BookingConsultation from './Components/InstantConsultation/BookingConsult
 import Navbar from './Components/Navbar/Navbar'; 
 import ReviewForm from './Components/ReviewForm/ReviewForm'; 
 import ProfileCard from './Components/ProfileCard/ProfileCard';
+import ReportsLayout from './Components/ReportsLayout/ReportsLayout';
 
 function App() {
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
       <BrowserRouter>
         {/* Navbar added here, outside of Routes, so it appears on all pages */}
         <Navbar />
@@ -30,6 +29,7 @@ function App() {
             <Route path="/booking-consultation" element={<BookingConsultation />} />
             <Route path="/reviews" element={<ReviewForm />} /> 
             <Route path="/profile" element={<ProfileCard />} />
+            <Route path="/reports" element={<ReportsLayout />} />
           </Routes>
         </Notification>
       </BrowserRouter>

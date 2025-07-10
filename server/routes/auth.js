@@ -38,15 +38,16 @@ passport.deserializeUser(function (id, cb) {
 
 // Route 1: Registering A New User: POST: http://localhost:8181/api/auth/register. No Login Required
 router.post('/register',[
-    body('email', "Please Enter a Vaild Email").isEmail(),
+    body('email', "Please Enter a Valid Email").isEmail(),
     body('name', "Username should be at least 4 characters.").isLength({ min: 4 }),
     body('password', "Password Should Be At Least 8 Characters.").isLength({ min: 8 }),
     body('phone', "Phone Number Should Be 10 Digits.").isLength({ min: 10 }),
+    body('role', "Role is required").notEmpty(),
 ], async (req, res) => {
 
-    const error = validationResult(req);
-    if(!error.isEmpty()){
-        return res.status(400).json({error: error.array()});
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({errors: errors.array()});
     }
 
     try {
@@ -63,6 +64,7 @@ router.post('/register',[
             name: req.body.name,
             password: hash,
             phone: req.body.phone,
+            role: req.body.role,
             createdAt: Date(),
         });
 
@@ -82,7 +84,8 @@ router.post('/register',[
 });
 
 router.post('/login', [
-    body('email', "Please Enter a Vaild Email").isEmail(),
+    body('email', "Please Enter a Valid Email").isEmail(),
+    body('password', "Password is required").notEmpty(),
 ], async (req, res) => {
 
     const errors = validationResult(req);
@@ -91,13 +94,10 @@ router.post('/login', [
     }
 
     try {
-      
-        const theUser = await UserSchema.findOne({ email: req.body.email }); // <-- Change req.body.username to req.body.name
-            // console.log('my',theUser.name);
-        // req.session.name=theUser.name
-        req.session.email = req.body.email; // <-- Change req.body.username to req.body.name
+        const theUser = await UserSchema.findOne({ email: req.body.email });
+        req.session.email = req.body.email;
         console.log(req.session.email);
-        // console.log(req.session.name);
+
         if (theUser) {
             let checkHash = await bcrypt.compare(req.body.password, theUser.password);
             if (checkHash) {

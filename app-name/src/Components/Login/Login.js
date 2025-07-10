@@ -6,6 +6,8 @@ import { API_URL } from '../../config';
 const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,30 +18,40 @@ const Login = () => {
 
   const login = async (e) => {
     e.preventDefault();
-    const res = await fetch(`${API_URL}/api/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    });
-    const json = await res.json();
-    if (json.authtoken) {
-      sessionStorage.setItem('auth-token', json.authtoken);
-      sessionStorage.setItem('email', email);
-      navigate('/');
-      window.location.reload();
-    } else {
-      if (json.errors) {
-        for (const error of json.errors) {
-          alert(error.msg);
-        }
+    setErrMsg('');
+    setIsLoading(true);
+
+    try {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      
+      const json = await res.json();
+      
+      if (json.authtoken) {
+        sessionStorage.setItem('auth-token', json.authtoken);
+        sessionStorage.setItem('email', email);
+        navigate('/');
+        window.location.reload();
       } else {
-        alert(json.error);
+        if (json.errors) {
+          setErrMsg(json.errors[0].msg);
+        } else {
+          setErrMsg(json.error || 'Login failed. Please try again.');
+        }
       }
+    } catch (error) {
+      console.error('Login error:', error);
+      setErrMsg('Network error. Please check your connection and try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -47,6 +59,7 @@ const Login = () => {
   const handleReset = () => {
     setEmail('');
     setPassword('');
+    setErrMsg('');
   };
 
   return (
@@ -86,9 +99,10 @@ const Login = () => {
                   required
                 />
               </div>
+              {errMsg && <div className="Login-error" style={{ color: 'red', marginBottom: '8px' }}>{errMsg}</div>}
               <div className="Login-form-buttons">
-                <button type="submit" className="Login-submit-btn">
-                  Login
+                <button type="submit" className="Login-submit-btn" disabled={isLoading}>
+                  {isLoading ? 'Logging in...' : 'Login'}
                 </button>
                 <button type="reset" className="Login-reset-btn">
                   Reset

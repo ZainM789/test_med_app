@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// eslint-disable-next-line
-import Navbar from "../Navbar/Navbar"; // Adjust path as per your file structure
 import "./LandingPage.css";
 
 const Landing_Page = () => {
@@ -26,9 +24,14 @@ const Landing_Page = () => {
               Welcome to our online medical booking system — fast, secure, and hassle-free.
               Find your doctor, choose a time, and confirm your visit in just a few clicks!
             </h4>
-            <Link to="/login">
-              <button className="button">Get Started</button>
-            </Link>
+            <div className="action-buttons">
+              <Link to="/login">
+                <button className="button">Get Started</button>
+              </Link>
+              <Link to="/reports">
+                <button className="button secondary">View Reports</button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

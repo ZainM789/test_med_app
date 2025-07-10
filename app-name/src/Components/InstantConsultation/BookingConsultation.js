@@ -61,7 +61,6 @@ const BookingConsultation = () => {
         // if (!authtoken) {
         //     navigate("/login");
         // }
-        // eslint-disable-next-line
     }, [searchParams, navigate]); // navigate is included in dependency array if used inside useEffect
 
     return (
