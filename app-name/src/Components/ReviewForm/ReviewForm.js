@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ReviewForm.css';
+import { API_URL } from '../../config';
 
 // Icon components using Font Awesome classes (consistent with the project)
 const CalendarDays = ({ size, className }) => <i className={`fa-solid fa-calendar-days ${className}`} style={{fontSize: `${size}px`}}></i>;
@@ -8,24 +9,57 @@ const User = ({ size, className }) => <i className={`fa-solid fa-user ${classNam
 const LogIn = ({ size, className }) => <i className={`fa-solid fa-right-to-bracket ${className}`} style={{fontSize: `${size}px`}}></i>;
 const CheckCircle = ({ size, className }) => <i className={`fa-solid fa-circle-check ${className}`} style={{fontSize: `${size}px`}}></i>;
 
+
+const defaultConsultations = [
+  { id: 1, name: 'Dr. Jennie Lee', specialty: 'Dentist', avatar: 'https://placehold.co/60x60/ADD8E6/000000?text=JL' },
+  { id: 2, name: 'Dr. Mary Muse', specialty: 'Dentist', avatar: 'https://placehold.co/60x60/FFDAB9/000000?text=MM' },
+  { id: 3, name: 'Dr. Zainuri', specialty: 'Dentist', avatar: 'https://placehold.co/60x60/DDA0DD/000000?text=Z' },
+];
+
 const ReviewPage = () => {
-  const [consultations, setConsultations] = useState([
-    { id: 1, name: 'Dr. Jennie Lee', specialty: 'Dentist', hasReviewed: false, avatar: 'https://placehold.co/60x60/ADD8E6/000000?text=JL' },
-    { id: 2, name: 'Dr. Mary Muse', specialty: 'Dentist', hasReviewed: false, avatar: 'https://placehold.co/60x60/FFDAB9/000000?text=MM' },
-    { id: 3, name: 'Dr. Zainuri', specialty: 'Dentist', hasReviewed: false, avatar: 'https://placehold.co/60x60/DDA0DD/000000?text=Z' },
-  ]);
+  const [consultations, setConsultations] = useState(defaultConsultations.map(d => ({ ...d, hasReviewed: false })));
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const userEmail = sessionStorage.getItem('email');
+
+  // Fetch reviews for all doctors on mount
+  useEffect(() => {
+    defaultConsultations.forEach((doc, idx) => {
+      fetch(`${API_URL}/api/reviews/${encodeURIComponent(doc.name)}`)
+        .then(res => res.json())
+        .then(data => {
+          const userReview = data.find(r => r.userEmail === userEmail);
+          setConsultations(prev => prev.map((c, i) =>
+            i === idx ? { ...c, hasReviewed: !!userReview, feedback: userReview?.feedback, rating: userReview?.rating } : c
+          ));
+        })
+        .catch(() => {});
+    });
+  }, [userEmail]);
 
   const handleGiveReview = (doctor) => {
     setSelectedDoctor(doctor);
     setShowReviewForm(true);
   };
 
-  const handleSubmitReview = (doctorId, feedback) => {
+
+  const handleSubmitReview = async (doctorId, feedbackObj) => {
+    const doctor = consultations.find(c => c.id === doctorId);
+    if (!doctor || !userEmail) return;
+    // Save review to backend
+    await fetch(`${API_URL}/api/reviews`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userEmail,
+        doctorName: doctor.name,
+        rating: feedbackObj.rating,
+        feedback: feedbackObj.feedback
+      })
+    });
     setConsultations(prevConsultations =>
       prevConsultations.map(consultation =>
-        consultation.id === doctorId ? { ...consultation, hasReviewed: true, feedback: feedback } : consultation
+        consultation.id === doctorId ? { ...consultation, hasReviewed: true, feedback: feedbackObj.feedback, rating: feedbackObj.rating } : consultation
       )
     );
     setShowReviewForm(false);

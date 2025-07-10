@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI =  "mongodb://root:ifgQWTWwLoUzCeW3ZIEyv8gn@172.21.144.253:27017";
+const mongoURI =  "mongodb+srv://zainuridarulmusthofa:jXWN4IkZjeFNoCeV@zainm789.vbzasvn.mongodb.net/?retryWrites=true&w=majority&appName=ZainM789";
 
 // Set strictQuery to suppress deprecation warning
 mongoose.set('strictQuery', false);

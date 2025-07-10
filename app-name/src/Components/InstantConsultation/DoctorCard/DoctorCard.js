@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './DoctorCard.css';
 import AppointmentForm from '../AppointmentForm/AppointmentForm';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { API_URL } from '../../../config';
 
 const defaultProfilePic =
   "https://api.dicebear.com/7.x/avataaars/svg?seed=doctor&backgroundColor=f0f0f0&clothingColor=3c4f5c&eyeColor=blue&hairColor=brown&skinColor=fdbcb4&accessories=prescription01&clothing=blazerShirt";
@@ -15,18 +16,55 @@ const DoctorCard = ({
   profilePic = defaultProfilePic,
   careerProfile = "MBBS, MD - Medicine | Senior Consultant at City Hospital"
 }) => {
+
   const [showModal, setShowModal] = useState(false);
   const [appointment, setAppointment] = useState(null); // State to store a single appointment
+  const userEmail = sessionStorage.getItem('email');
 
-  const handleFormSubmit = (appointmentData) => {
-    console.log("Appointment Data:", appointmentData); // Verification log
-    setAppointment(appointmentData); // Set the appointment data
-    setShowModal(false); // Close the modal after submission
+  // Fetch appointment for this doctor and user
+  useEffect(() => {
+    if (!userEmail) return;
+    fetch(`${API_URL}/api/appointments/${userEmail}`)
+      .then(res => res.json())
+      .then(data => {
+        // Find appointment for this doctor
+        const found = data.find(a => a.doctorName === name);
+        if (found) setAppointment(found);
+        else setAppointment(null);
+      })
+      .catch(() => setAppointment(null));
+  }, [showModal, userEmail, name]);
+
+  const handleFormSubmit = async (appointmentData) => {
+    if (!userEmail) return;
+    const payload = {
+      userEmail,
+      doctorName: name,
+      doctorSpeciality: speciality,
+      appointmentDate: appointmentData.appointmentDate,
+      notes: '',
+      slot: appointmentData.slot,
+      name: appointmentData.name,
+      phoneNumber: appointmentData.phoneNumber
+    };
+    try {
+      const res = await fetch(`${API_URL}/api/appointments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        const saved = await res.json();
+        setAppointment(saved);
+      }
+    } catch (e) { /* handle error */ }
+    setShowModal(false);
   };
 
-  const handleCancel = () => {
-    setAppointment(null); // Clear the appointment
-    setShowModal(false); // Close the modal after cancellation
+  const handleCancel = async () => {
+    // For simplicity, just clear locally (implement delete in backend for full feature)
+    setAppointment(null);
+    setShowModal(false);
   };
 
   return (
