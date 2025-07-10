@@ -68,3 +68,26 @@ body {
 .navbar-link.active i {
     color: #13a3d7;
 }
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+  padding: 4px 8px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  background: white;
+  z-index: 1000;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

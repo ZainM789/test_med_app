@@ -10,6 +10,7 @@ import InstantConsultation from './Components/InstantConsultation/InstantConsult
 import BookingConsultation from './Components/InstantConsultation/BookingConsultation'; 
 import Navbar from './Components/Navbar/Navbar'; 
 import ReviewForm from './Components/ReviewForm/ReviewForm'; 
+import ProfileCard from './Components/ProfileCard/ProfileCard';
 
 function App() {
   return (
@@ -27,9 +28,8 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/instant-consultation" element={<InstantConsultation />} />
             <Route path="/booking-consultation" element={<BookingConsultation />} />
-            {/* New route for the Reviews page */}
             <Route path="/reviews" element={<ReviewForm />} /> 
-            {/* Add more routes as needed */}
+            <Route path="/profile" element={<ProfileCard />} />
           </Routes>
         </Notification>
       </BrowserRouter>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import ProfileCard from '../ProfileCard/ProfileCard';
 
 const Navbar = () => {
   // State for mobile nav and authentication
@@ -87,19 +88,48 @@ const Navbar = () => {
           </>
         )}
         {isLoggedIn && (
-          <li style={{ display: "flex", alignItems: "center", marginLeft: "12px" }}>
+        <li
+            style={{
+            display: "flex",
+            alignItems: "center",
+            marginLeft: "12px",
+            position: "relative"
+            }}
+        >
             <span style={{ marginRight: "8px" }}>
-              Welcome, <b>{username}</b>
+            Welcome, <b>{username}</b>
             </span>
-            <button
-              className="navbar-link"
-              id="logout-button"
-              style={{ border: "none", background: "none", cursor: "pointer", padding: "0 10px" }}
-              onClick={handleLogout}
-            >
-              Logout
+
+            {/* Toggle dropdown */}
+            <div className="dropdown">
+            <button className="dropdown-toggle">
+                Your Profile
             </button>
-          </li>
+            <div className="dropdown-menu">
+                <ProfileCard
+                user={{
+                    name: username,
+                    email: sessionStorage.getItem('email'),
+                    role: 'User'
+                }}
+                />
+            </div>
+            </div>
+
+            <button
+            className="navbar-link"
+            id="logout-button"
+            style={{
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+                padding: "0 10px"
+            }}
+            onClick={handleLogout}
+            >
+            Logout
+            </button>
+        </li>
         )}
       </ul>
     </nav>
