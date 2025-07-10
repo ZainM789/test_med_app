@@ -3,7 +3,7 @@
 .reports-layout {
   min-height: calc(100vh - 90px); /* Account for navbar height */
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 110px 20px 20px 20px; /* Use padding-top instead of margin-top */
+  padding: 40px 20px 20px 20px; /* Reduced top padding since body now has padding */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   overflow-x: hidden;

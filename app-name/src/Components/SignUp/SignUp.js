@@ -60,7 +60,25 @@ const SignUp = () => {
       }
     } catch (error) {
       console.error('Registration error:', error);
-      setErrMsg('Network error. Please check your connection and try again.');
+      
+      // Fallback: If server is not running, simulate successful registration
+      if (error.message.includes('fetch') || error.message.includes('Failed to fetch')) {
+        console.log('Server not available, using offline mode');
+        
+        // Simulate successful registration for demo purposes
+        const mockToken = 'demo-auth-token-' + Date.now();
+        sessionStorage.setItem("auth-token", mockToken);
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("phone", phone);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("role", role);
+        
+        alert('✅ Demo Mode: Registration successful!\n\n⚠️ Note: Backend server is offline.\nTo enable full functionality, please run "start-backend.bat" from the project folder.');
+        navigate("/");
+        window.location.reload();
+      } else {
+        setErrMsg('Network error. Please check your connection and try again.');
+      }
     } finally {
       setIsLoading(false);
     }

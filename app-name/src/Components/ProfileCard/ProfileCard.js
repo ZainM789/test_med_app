@@ -31,6 +31,21 @@ const ProfileCard = () => {
         return;
       }
 
+      // Check if we're in demo mode (auth token starts with 'demo-')
+      if (authtoken.startsWith('demo-')) {
+        // Use demo mode data from sessionStorage
+        const demoUser = {
+          name: sessionStorage.getItem("name") || "Demo User",
+          email: sessionStorage.getItem("email") || "demo@example.com",
+          phone: sessionStorage.getItem("phone") || "123-456-7890",
+          role: sessionStorage.getItem("role") || "patient"
+        };
+        setUserDetails(demoUser);
+        setUpdatedDetails(demoUser);
+        setError("Demo Mode: Profile changes won't be saved to server");
+        return;
+      }
+
       const response = await fetch(`${API_URL}/api/auth/user`, {
         headers: {
           "Authorization": `Bearer ${authtoken}`,
@@ -42,12 +57,23 @@ const ProfileCard = () => {
         const user = await response.json();
         setUserDetails(user);
         setUpdatedDetails(user);
+        setError(""); // Clear any previous errors
       } else {
         throw new Error("Failed to fetch user profile");
       }
     } catch (err) {
-      console.error(err);
-      setError("Could not load profile. Please try again.");
+      console.error("Profile fetch error:", err);
+      
+      // Fallback to demo mode if API fails
+      const demoUser = {
+        name: sessionStorage.getItem("name") || "Demo User",
+        email: sessionStorage.getItem("email") || "demo@example.com", 
+        phone: sessionStorage.getItem("phone") || "123-456-7890",
+        role: sessionStorage.getItem("role") || "patient"
+      };
+      setUserDetails(demoUser);
+      setUpdatedDetails(demoUser);
+      setError("Demo Mode: Backend unavailable - profile changes won't be saved");
     }
   };
 
@@ -85,6 +111,18 @@ const ProfileCard = () => {
         return;
       }
 
+      // Check if we're in demo mode
+      if (authtoken.startsWith('demo-')) {
+        // Update sessionStorage for demo mode
+        sessionStorage.setItem("name", updatedDetails.name);
+        sessionStorage.setItem("phone", updatedDetails.phone);
+        setUserDetails(updatedDetails);
+        setEditMode(false);
+        setError("Demo Mode: Profile updated locally (not saved to server)");
+        alert("Profile Updated in Demo Mode!");
+        return;
+      }
+
       const response = await fetch(`${API_URL}/api/auth/user`, {
         method: "PUT",
         headers: {
@@ -107,8 +145,13 @@ const ProfileCard = () => {
         throw new Error("Failed to update profile");
       }
     } catch (err) {
-      console.error(err);
-      setError("Update failed. Please try again.");
+      console.error("Profile update error:", err);
+      // Fallback to demo mode if update fails
+      sessionStorage.setItem("name", updatedDetails.name);
+      sessionStorage.setItem("phone", updatedDetails.phone);
+      setUserDetails(updatedDetails);
+      setEditMode(false);
+      setError("Demo Mode: Backend unavailable - profile updated locally only");
     }
   };
 

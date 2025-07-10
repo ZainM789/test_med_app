@@ -34,6 +34,17 @@ body * {
     margin-right: 32px;
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.logo-link:hover {
+    text-decoration: none;
+}
+
 .logo-text {
     font-family: 'Poppins', 'Roboto', sans-serif;
     font-size: 1.8rem;
@@ -133,14 +144,4 @@ body * {
 /* Hide mobile hamburger menu */
 .nav__icon {
   display: none !important;
-}
-
-/* Clean navbar styling */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

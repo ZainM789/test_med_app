@@ -19,50 +19,110 @@
 }
 
 .profile-container {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  }
-  
-  .profile-container form label {
-    display: block;
-    margin-bottom: 12px;
-  }
-  
-  .profile-container input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .profile-container button {
+    max-width: 500px;
+    margin: 50px auto 40px auto; /* Reduced top margin since body now has padding */
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: calc(100vh - 200px); /* Ensure enough space */
+}
+
+.profile-details h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.profile-details p {
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+.profile-details button {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: #13a3d7;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.profile-details button:hover {
+    background: #0d6392;
+}
+  
+  .profile-container form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .profile-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .profile-container input:focus {
+    outline: none;
+    border-color: #13a3d7;
+    box-shadow: 0 0 0 2px rgba(19, 163, 215, 0.2);
+  }
+
+  .profile-container input:disabled {
+    background-color: #f5f5f5;
+    color: #666;
+  }
+  
+  .profile-container button {
+    margin-top: 15px;
+    margin-right: 10px;
+    padding: 12px 24px;
+    background: #13a3d7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
   }
   
   .profile-container button:hover {
     background: #0d6392;
   }
-  
-  .profile-container form label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
+
+  .profile-container button[type="button"] {
+    background: #6c757d;
+  }
+
+  .profile-container button[type="button"]:hover {
+    background: #545b62;
   }
 
   .error-message {
-    color: red;
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    padding: 12px;
     margin-bottom: 15px;
+    font-size: 0.9rem;
   }
   
