@@ -1,9 +1,9 @@
 /* ReportsLayout.css */
 
 .reports-layout {
-  min-height: calc(100vh - 64px); /* Account for navbar height */
+  min-height: calc(100vh - 90px); /* Account for navbar height */
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 20px;
+  padding: 110px 20px 20px 20px; /* Use padding-top instead of margin-top */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   overflow-x: hidden;
@@ -201,39 +201,51 @@
 .reports-table {
   width: 100%;
   border-collapse: collapse;
+  border-spacing: 0; /* Ensure no spacing between cells */
 }
 
 .reports-table th {
   background-color: #f8f9fa;
-  padding: 16px;
+  padding: 8px 16px; /* Further reduced vertical padding */
   text-align: left;
   font-weight: 600;
   color: #495057;
   border-bottom: 2px solid #e9ecef;
+  line-height: 1.2; /* Tight line height */
+  margin: 0; /* Explicit no margin */
 }
 
 .reports-table td {
-  padding: 16px;
+  padding: 6px 16px; /* Further reduced vertical padding from 10px to 6px */
   border-bottom: 1px solid #e9ecef;
   vertical-align: middle;
+  line-height: 1.3; /* Tight line height */
+  margin: 0; /* Explicit no margin */
+}
+
+.reports-table tr {
+  margin: 0; /* Explicit no margin on rows */
+  padding: 0; /* Explicit no padding on rows */
 }
 
 .reports-table tr:hover {
   background: linear-gradient(90deg, #f8f9fa 0%, #e3f2fd 100%);
-  transform: scale(1.001);
-  transition: all 0.3s ease;
+  transform: scale(1.0005); /* Reduced scale effect for compact table */
+  transition: all 0.2s ease; /* Faster transition */
 }
 
 .report-title-cell h4 {
-  margin: 0 0 4px 0;
+  margin: 0 0 2px 0; /* Reduced bottom margin from 4px to 2px */
   font-size: 16px;
   color: #212529;
+  line-height: 1.3; /* Added tighter line height */
 }
 
 .report-title-cell p {
   margin: 0;
   font-size: 14px;
   color: #6c757d;
+  line-height: 1.2; /* Added tighter line height */
 }
 
 .clickable-title {
@@ -668,6 +680,14 @@
 
   .reports-table {
     min-width: 700px;
+  }
+  
+  .reports-table th {
+    padding: 8px 12px; /* Further reduced for mobile */
+  }
+  
+  .reports-table td {
+    padding: 8px 12px; /* Further reduced for mobile */
   }
 
   .list-item {

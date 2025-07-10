@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { CalendarDays, FileText, User, LogIn, CheckCircle } from 'lucide-react';
-import Navbar from '../Navbar/Navbar';
+import './ReviewForm.css';
 
-const App = () => {
+// Icon components using Font Awesome classes (consistent with the project)
+const CalendarDays = ({ size, className }) => <i className={`fa-solid fa-calendar-days ${className}`} style={{fontSize: `${size}px`}}></i>;
+const FileText = ({ size, className }) => <i className={`fa-solid fa-file-text ${className}`} style={{fontSize: `${size}px`}}></i>;
+const User = ({ size, className }) => <i className={`fa-solid fa-user ${className}`} style={{fontSize: `${size}px`}}></i>;
+const LogIn = ({ size, className }) => <i className={`fa-solid fa-right-to-bracket ${className}`} style={{fontSize: `${size}px`}}></i>;
+const CheckCircle = ({ size, className }) => <i className={`fa-solid fa-circle-check ${className}`} style={{fontSize: `${size}px`}}></i>;
+
+const ReviewPage = () => {
   const [consultations, setConsultations] = useState([
     { id: 1, name: 'Dr. Jennie Lee', specialty: 'Dentist', hasReviewed: false, avatar: 'https://placehold.co/60x60/ADD8E6/000000?text=JL' },
     { id: 2, name: 'Dr. Mary Muse', specialty: 'Dentist', hasReviewed: false, avatar: 'https://placehold.co/60x60/FFDAB9/000000?text=MM' },
@@ -157,4 +163,4 @@ const ReviewForm = ({ doctor, onSubmit, onClose }) => {
   );
 };
 
-export default App;
+export default ReviewPage;

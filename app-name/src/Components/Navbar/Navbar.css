@@ -5,14 +5,27 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+/* Ensure proper spacing for fixed navbar */
+body * {
+    box-sizing: border-box;
+}
+
 .navbar {
-    background: #fff;
-    padding: 0 32px;
     display: flex;
-    align-items: center;
-    height: 64px;
-    box-shadow: 0 2px 4px rgba(100,100,100,0.05);
     justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    height: 70px; /* Explicit height for navbar */
+    min-height: 70px;
 }
 
 .navbar-logo {
@@ -22,23 +35,61 @@ body {
 }
 
 .logo-text {
-    font-family: 'Pacifico', cursive, Arial, sans-serif;
-    font-size: 2rem;
-    color: #13a3d7;
-    text-shadow:
-        1px 1px 0 #fff,
-        2px 2px 0 #169ccb,
-        3px 3px 0 #fff,
-        4px 4px 0 #0d6392;
-    letter-spacing: 2px;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s ease;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+.logo-text:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 2px 8px rgba(102, 126, 234, 0.3));
+}
+
+.logo-text::before {
+    content: '🏥';
+    margin-right: 8px;
+    font-size: 1.2em;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .navbar-menu {
-    display: flex;
     list-style: none;
+    display: flex;
+    gap: 2rem;
     margin: 0;
     padding: 0;
     align-items: center;
+    flex-direction: row;
+    position: static;
+    background: transparent;
 }
 
 .navbar-menu li {
@@ -46,12 +97,14 @@ body {
 }
 
 .navbar-link {
-    color: #222;
     text-decoration: none;
-    font-size: 1rem;
+    color: #333;
     display: flex;
     align-items: center;
-    transition: color 0.2s;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 .navbar-link i {
@@ -62,61 +115,32 @@ body {
 
 .navbar-link:hover,
 .navbar-link.active {
-    color: #13a3d7;
+    background: #f8f9fa;
+    color: #007bff;
 }
 
 .navbar-link.active i {
     color: #13a3d7;
 }
 
-.dropdown {
-  position: relative;
-}
-
-.dropdown-toggle {
-  background-color: transparent;
+.logout-btn {
+  background: none;
   border: none;
   cursor: pointer;
-  font-weight: bold;
-  color: #007bff;
-  padding: 4px 8px;
+  font-size: inherit;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 36px;
-  right: 0;
-  background: white;
-  z-index: 1000;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  min-width: 200px;
-  overflow: hidden;
+/* Hide mobile hamburger menu */
+.nav__icon {
+  display: none !important;
 }
 
-.dropdown-divider {
-  height: 1px;
-  background-color: #e9ecef;
-  margin: 8px 0;
-}
-
-.dropdown-item {
+/* Clean navbar styling */
+.navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-  color: #333;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-  font-size: 14px;
-}
-
-.dropdown-item:hover {
-  background-color: #f8f9fa;
-  color: #13a3d7;
-}
-
-.dropdown-item i {
-  margin-right: 8px;
-  font-size: 16px;
-  color: #13a3d7;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

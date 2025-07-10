@@ -5,7 +5,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 const defaultProfilePic =
-  "https://images.unsplash.com/photo-1511174511562-5f97f4f9c6b0?fit=crop&w=400&q=80";
+  "https://api.dicebear.com/7.x/avataaars/svg?seed=doctor&backgroundColor=f0f0f0&clothingColor=3c4f5c&eyeColor=blue&hairColor=brown&skinColor=fdbcb4&accessories=prescription01&clothing=blazerShirt";
 
 const DoctorCard = ({
   name = "Dr. John Doe",
@@ -32,42 +32,48 @@ const DoctorCard = ({
   return (
     <div className="doctor-card-container">
       <div className="doctor-card-details-container">
-        <div className="doctor-card-profile-image-container">
-          <img
-            src={profilePic}
-            alt={`${name}'s profile`}
-            className="doctor-card-profile-image"
-            loading="lazy"
-          />
-        </div>
-        <div className="doctor-card-details">
-          <div className="doctor-card-detail-name">{name}</div>
-          <div className="doctor-card-detail-speciality">{speciality}</div>
-          <div className="doctor-card-detail-experience">{experience} years experience</div>
-          <div className="doctor-card-detail-career">{careerProfile}</div>
-          <div className="doctor-card-detail-ratings">
-            <span className="star">&#9733;</span> {ratings} / 5
+        <div className="doctor-info-section">
+          <div className="doctor-card-profile-image-container">
+            <img
+              src={profilePic}
+              alt={`${name}'s profile`}
+              className="doctor-card-profile-image"
+              loading="lazy"
+            />
+          </div>
+          <div className="doctor-card-details">
+            <div className="doctor-card-detail-name">{name}</div>
+            <div className="doctor-card-detail-speciality">{speciality}</div>
+            <div className="doctor-card-detail-experience">{experience} years experience</div>
+            <div className="doctor-card-detail-career">{careerProfile}</div>
+            <div className="doctor-card-detail-ratings">
+              <span className="rating-star">⭐</span>
+              <span className="rating-text">{ratings}/5</span>
+            </div>
           </div>
         </div>
+      </div>
+      
+      {/* Move button section to bottom */}
+      <div className="doctor-card-button-section">
         {/* This div will contain the Popup for booking/cancelling */}
-        <div>
-          <Popup
-            trigger={
-              <button
-                className={`book-appointment-btn ${appointment ? 'cancel-appointment' : ''}`} // Add class for styling if booked
-                onClick={() => setShowModal(true)} // Open modal on button click
-              >
-                <div>{appointment ? "Cancel Appointment" : "Book Appointment"}</div>
-                <div>No Booking Fee</div>
-              </button>
-            }
-            modal
-            open={showModal} // Control modal visibility with state
-            onClose={() => setShowModal(false)} // Close modal when background is clicked or Esc is pressed
-          >
+        <Popup
+          trigger={
+            <button
+              className={`book-appointment-btn ${appointment ? 'cancel-appointment' : ''}`}
+              onClick={() => setShowModal(true)}
+            >
+              <div>{appointment ? "Cancel Appointment" : "Book Appointment"}</div>
+              <div>No Booking Fee</div>
+            </button>
+          }
+          modal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+        >
             {/* The content of the popup */}
             {(close) => (
-              <div className="doctorbg" style={{ height: '100vh', overflow: 'scroll' }}>
+              <div className="doctorbg" style={{ height: 'auto', maxHeight: '80vh', overflow: 'auto' }}>
                 {/* Doctor details within the modal (optional, but good for context) */}
                 <div>
                   <div className="doctor-card-profile-image-container">
@@ -82,7 +88,10 @@ const DoctorCard = ({
                     <div className="doctor-card-detail-name">{name}</div>
                     <div className="doctor-card-detail-speciality">{speciality}</div>
                     <div className="doctor-card-detail-experience">{experience} years experience</div>
-                    <div className="doctor-card-detail-ratings">Ratings: {ratings}</div>
+                    <div className="doctor-card-detail-ratings" style={{ justifyContent: 'center' }}>
+                      <span className="rating-star">⭐</span>
+                      <span className="rating-text">{ratings}/5</span>
+                    </div>
                   </div>
                 </div>
 
@@ -110,7 +119,6 @@ const DoctorCard = ({
               </div>
             )}
           </Popup>
-        </div>
       </div>
       {/* ✅ Show appointment summary below card if booked */}
       {appointment && (

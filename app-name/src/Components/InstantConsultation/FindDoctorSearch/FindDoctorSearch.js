@@ -59,11 +59,7 @@ const FindDoctorSearch = ({ onSelectSpeciality }) => {
           onFocus={() => setShowList(true)}
         />
         <button className="search-bar-icon-btn" tabIndex={-1}>
-          <img
-            src={process.env.PUBLIC_URL + '/images/search.svg'}
-            alt="search"
-            className="search-bar-icon"
-          />
+          <i className="fas fa-search search-bar-icon"></i>
         </button>
       </div>
       {showList && (
@@ -78,10 +74,7 @@ const FindDoctorSearch = ({ onSelectSpeciality }) => {
                 onMouseDown={() => handleSelect(speciality)}
               >
                 <span className="dropdown-item-icon">
-                  <img
-                    src={process.env.PUBLIC_URL + '/images/search.svg'}
-                    alt=""
-                  />
+                  <i className="fas fa-search"></i>
                 </span>
                 <span className="dropdown-item-speciality">{speciality}</span>
                 <span className="dropdown-item-type">SPECIALITY</span>

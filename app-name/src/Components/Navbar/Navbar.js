@@ -4,13 +4,9 @@ import './Navbar.css';
 import ProfileCard from '../ProfileCard/ProfileCard';
 
 const Navbar = () => {
-  // State for mobile nav and authentication
-  const [click, setClick] = useState(false);
+  // State for authentication
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
-
-  // Mobile menu toggle
-  const handleClick = () => setClick(!click);
 
   // Logout function: clears session/local storage and reloads
   const handleLogout = () => {
@@ -27,7 +23,6 @@ const Navbar = () => {
       }
     }
     setIsLoggedIn(false);
-    setEmail('');
     setUsername('');
     window.location.reload();
   };
@@ -37,11 +32,9 @@ const Navbar = () => {
     const storedEmail = sessionStorage.getItem('email');
     if (storedEmail) {
       setIsLoggedIn(true);
-      setEmail(storedEmail);
       setUsername(storedEmail.split('@')[0]);
     } else {
       setIsLoggedIn(false);
-      setEmail('');
       setUsername('');
     }
   }, []);
@@ -52,87 +45,65 @@ const Navbar = () => {
         <Link to="/" className="logo-link">
           <span className="logo-text">Medic4U</span>
         </Link>
-        <div className="nav__icon" onClick={handleClick}>
-          <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
-        </div>
       </div>
-      <ul className={click ? "navbar-menu active" : "navbar-menu"}>
+      <ul className="navbar-menu">
         <li>
-          <Link to="/appointments" className="navbar-link" id="appointments-link" onClick={() => setClick(false)}>
+          <Link to="/appointments" className="navbar-link" id="appointments-link">
             <i className="fa-regular fa-calendar"></i>
             Appointments
           </Link>
         </li>
         <li>
-          <Link to="/reviews" className="navbar-link" id="reviews-link" onClick={() => setClick(false)}>
-            <i className="fa-solid fa-book"></i>
+          <Link to="/reviews" className="navbar-link" id="reviews-link">
+            <i className="fa-solid fa-star"></i>
             Reviews
           </Link>
         </li>
+        
+        {/* Reports Dropdown */}
+        <li className="navbar-dropdown">
+          <Link to="/reports" className="navbar-link" id="reports-link">
+            <i className="fa-solid fa-file-medical"></i>
+            Your Reports
+          </Link>
+        </li>
+
         {!isLoggedIn && (
           <>
             <li>
-              <Link to="/SignUp" className="navbar-link" id="SignUp-link" onClick={() => setClick(false)}>
-                <i className="fa-solid fa-user"></i>
+              <Link to="/signup" className="navbar-link" id="signup-link">
+                <i className="fa-solid fa-user-plus"></i>
                 Sign Up
               </Link>
             </li>
             <li>
-              <Link to="/Login" className="navbar-link" id="Login-link" onClick={() => setClick(false)}>
+              <Link to="/login" className="navbar-link" id="login-link">
                 <i className="fa-solid fa-right-to-bracket"></i>
                 Login
               </Link>
             </li>
           </>
         )}
+
         {isLoggedIn && (
-        <li
-            style={{
-            display: "flex",
-            alignItems: "center",
-            marginLeft: "12px",
-            position: "relative"
-            }}
-        >
-            <span style={{ marginRight: "8px" }}>
-            Welcome, <b>{username}</b>
-            </span>
-
-            {/* Toggle dropdown */}
-            <div className="dropdown">
-            <button className="dropdown-toggle">
-                Your Profile
-            </button>
-            <div className="dropdown-menu">
-                <ProfileCard
-                user={{
-                    name: username,
-                    email: sessionStorage.getItem('email'),
-                    role: 'User'
-                }}
-                />
-                <div className="dropdown-divider"></div>
-                <Link to="/reports" className="dropdown-item" onClick={() => setClick(false)}>
-                  <i className="fa-solid fa-file-medical"></i>
-                  Your Reports
-                </Link>
-            </div>
-            </div>
-
-            <button
-            className="navbar-link"
-            id="logout-button"
-            style={{
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-                padding: "0 10px"
-            }}
-            onClick={handleLogout}
-            >
-            Logout
-            </button>
-        </li>
+          <>
+            <li>
+              <Link to="/profile" className="navbar-link" id="profile-link">
+                <i className="fa-solid fa-user"></i>
+                Welcome, {username}
+              </Link>
+            </li>
+            <li>
+              <button 
+                onClick={handleLogout} 
+                className="navbar-link logout-btn" 
+                id="logout-btn"
+              >
+                <i className="fa-solid fa-right-from-bracket"></i>
+                Logout
+              </button>
+            </li>
+          </>
         )}
       </ul>
     </nav>

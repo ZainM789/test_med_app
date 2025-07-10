@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../Navbar/Navbar';
 import './Notification.css';
 
 const Notification = ({ children }) => {
@@ -55,7 +54,6 @@ const Notification = ({ children }) => {
 
   return (
     <div>
-      <Navbar />
       {children}
 
       {isLoggedIn && showNotification && appointmentData && (

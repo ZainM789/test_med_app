@@ -25,6 +25,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/appointments" element={<BookingConsultation />} />
             <Route path="/instant-consultation" element={<InstantConsultation />} />
             <Route path="/booking-consultation" element={<BookingConsultation />} />
             <Route path="/reviews" element={<ReviewForm />} /> 

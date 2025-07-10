@@ -6,10 +6,30 @@
     padding: 0 20px;
     position: static;
     width: 100%;
+    overflow: hidden; /* Prevent content overflow */
 }
 
 .searchpage-container img {
     max-width: 100%;
+}
+
+.search-results-container {
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    justify-items: center;
 }
 
 .search-results-container .doctorcard {
@@ -17,10 +37,10 @@
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 18px;
+    margin-bottom: 0; /* Remove margin since grid handles spacing */
+    padding: 0; /* Remove padding here since DoctorCard has its own padding */
     border-radius: 4px;
-    background-color: #fff;
+    background-color: transparent; /* Let DoctorCard handle background */
 }
 
 .search-results-container > h2 {
@@ -34,4 +54,15 @@
     color: #2d2d32;
     text-align: left;
     font-size: 15px;
+}
+
+/* Remove any potential list styling that might cause stray elements */
+* {
+    list-style: none;
+}
+
+.searchpage-container, 
+.search-results-container, 
+.doctors-grid {
+    list-style: none !important;
 }

@@ -32,7 +32,30 @@ const Landing_Page = () => {
                 <button className="button secondary">View Reports</button>
               </Link>
             </div>
+            
+            {/* Additional features section */}
+            <div className="features-highlight">
+              <div className="feature-item">
+                <span className="feature-icon">⚡</span>
+                <span>Fast Booking</span>
+              </div>
+              <div className="feature-item">
+                <span className="feature-icon">🔒</span>
+                <span>Secure Platform</span>
+              </div>
+              <div className="feature-item">
+                <span className="feature-icon">👨‍⚕️</span>
+                <span>Expert Doctors</span>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+      
+      {/* Bottom spacing section */}
+      <section className="bottom-spacer">
+        <div className="spacer-content">
+          <p>Your health journey starts here. Book your appointment today!</p>
         </div>
       </section>
     </>

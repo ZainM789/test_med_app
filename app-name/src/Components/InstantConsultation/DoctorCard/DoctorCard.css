@@ -1,13 +1,20 @@
 .doctor-card-container {
   width: 100%;
-  max-width: 440px;
-  margin: 24px auto;
+  max-width: 380px; /* Smaller containers */
+  height: 280px; /* Fixed height for all cards */
+  margin: 20px auto;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(120, 120, 140, 0.08);
   padding: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
   transition: box-shadow 0.18s;
+  overflow: hidden; /* Prevent content overflow */
+  position: relative; /* Ensure proper positioning context */
+  contain: layout style paint; /* Contain layout, style, and paint to prevent overflow */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .doctor-card-container:hover {
@@ -18,9 +25,10 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 18px;
-  padding: 28px 28px 20px 24px;
+  gap: 15px;
+  padding: 20px 20px 10px 20px; /* Reduced padding */
   position: relative;
+  flex: 1; /* Take up available space */
 }
 
 .doctor-card-profile-image-container {
@@ -28,8 +36,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 82px;
-  height: 82px;
+  width: 70px; /* Slightly smaller profile image */
+  height: 70px;
   background: #f6f7f9;
   border-radius: 50%;
   overflow: hidden;
@@ -38,8 +46,8 @@
 }
 
 .doctor-card-profile-image {
-  width: 78px;
-  height: 78px;
+  width: 68px;
+  height: 68px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
@@ -50,48 +58,100 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0; /* Allow text to wrap properly */
 }
 
 .doctor-card-detail-name {
-  font-size: 1.18rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #22223b;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
+  line-height: 1.2;
 }
 
 .doctor-card-detail-speciality {
-  font-size: 1.01rem;
+  font-size: 0.95rem;
   color: #4b4b58;
   font-weight: 500;
   letter-spacing: 0.01em;
+  margin-bottom: 2px;
 }
 
 .doctor-card-detail-experience {
-  font-size: 0.98rem;
+  font-size: 0.9rem;
   color: #64646d;
   margin-top: 2px;
 }
 
 .doctor-card-detail-career {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #88889a;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .doctor-card-detail-ratings {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #e3b600;
   font-weight: 600;
-  margin-top: 4px;
+  margin-top: 6px;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
+  contain: layout;
+  isolation: isolate;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  min-height: 1.2em;
 }
 
-.star {
-  color: #ffd700;
-  font-size: 1.18em;
-  margin-right: 2px;
+.rating-star {
+  font-size: 1.1em;
+  display: inline-block !important;
+  line-height: 1;
+  margin-right: 4px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  font-weight: normal;
+  filter: none;
+}
+
+.rating-text {
+  font-size: 0.95rem;
+  color: #e3b600;
+  font-weight: 600;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 2;
+  margin-left: 2px;
+}
+
+/* Prevent any list-style bullets that might appear as stars */
+.doctor-card-container,
+.doctor-card-container * {
+  list-style: none !important;
+  list-style-type: none !important;
+}
+
+/* Ratings container with proper isolation */
+.doctor-card-detail-ratings {
+  isolation: isolate;
+  contain: layout style;
+  position: relative;
+  z-index: 1;
 }
 
 /* Updated Appointment Summary Styles */
@@ -140,29 +200,6 @@
     background-color: #c82333;
 }
 
-
-.book-appointment-btn {
-  margin-left: 24px;
-  /* Original styles */
-  background: #2188ff;
-  color: #fff;
-  border: none;
-  border-radius: 7px;
-  padding: 10px 17px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(33, 136, 255, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: background 0.18s;
-}
-
-.book-appointment-btn:hover {
-  background: #1667c2;
-}
-
 /* Style for when the button is in "cancel appointment" state */
 .book-appointment-btn.cancel-appointment {
     background-color: #dc3545; /* Red color for cancellation */
@@ -175,15 +212,26 @@
 
 
 .book-appointment-btn > div:first-child {
-  font-size: 1.07em;
+  font-size: 0.95em;
   font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2px;
 }
 
 .book-appointment-btn > div:last-child {
-  font-size: 0.92em;
+  font-size: 0.75em;
   color: #e2e9f8;
   font-weight: 400;
   letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+/* Button section at bottom of card */
+.doctor-card-button-section {
+  padding: 15px 20px;
+  border-top: 1px solid #f0f0f0;
+  background: #fafafa;
+  border-radius: 0 0 12px 12px;
 }
 
 /* Styles for the booked information inside the modal */
@@ -240,14 +288,51 @@
 }
 
 
-/* Adjustments for the modal background and scrolling */
+/* Modal and popup styles */
 .doctorbg {
-    /* This class is used in the Popup content div in DoctorCard.js */
-    background-color: #ffffff; /* Ensure white background for the modal content */
-    padding: 20px; /* Add some padding around the content */
-    box-sizing: border-box; /* Include padding in element's total width and height */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
-    max-height: 90vh; /* Limit height to prevent modal from going off-screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 12px;
+  max-width: 450px;
+  max-height: 80vh; /* Limit height to 80% of viewport */
+  margin: 0 auto;
+  overflow-y: auto; /* Allow scrolling if content is too tall */
+  position: relative;
+  top: 50px; /* Add top margin to avoid navbar overlap */
+}
+
+.doctorbg .doctor-card-details {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.doctorbg .doctor-card-detail-ratings {
+  justify-content: center !important;
+}
+
+.doctorbg .doctor-card-profile-image-container {
+  margin: 0 auto 10px auto;
+  width: 60px; /* Smaller profile image in modal */
+  height: 60px;
+}
+
+.doctorbg .doctor-card-profile-image {
+  width: 58px;
+  height: 58px;
+}
+
+/* Override reactjs-popup modal styles to work with fixed navbar */
+.popup-overlay {
+  z-index: 999 !important; /* Ensure it's below the navbar */
+}
+
+.popup-content {
+  margin-top: 80px !important; /* Add margin to avoid navbar overlap */
+  max-height: calc(100vh - 100px) !important;
+  overflow-y: auto !important;
 }
 
 /* Existing Media Queries */
@@ -300,4 +385,41 @@
     font-size: 0.9rem;
     text-align: center;
   }
+}
+
+.doctor-info-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1;
+}
+
+/* Comprehensive star cleanup - improve text rendering */
+.doctor-card-container {
+  /* Improve font rendering */
+  font-feature-settings: "liga" on;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hide only unwanted icon fonts in ratings area, not everywhere */
+.doctor-card-detail-ratings .fa:not(.rating-star),
+.doctor-card-detail-ratings .fas:not(.rating-star),
+.doctor-card-detail-ratings .far:not(.rating-star),
+.doctor-card-detail-ratings .fab:not(.rating-star) {
+  display: none !important;
+}
+
+/* Ensure rating star renders properly */
+.rating-star {
+  /* Use system fonts for better star rendering */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: none;
 }
