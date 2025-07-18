@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGO_URI; // Use env variable
 
+console.log('MongoDB URI:', mongoURI ? 'URI is set' : 'URI is NOT set');
+
 mongoose.set('strictQuery', false);
 
 const connectToMongo = async (retryCount) => {
