@@ -7,7 +7,7 @@ const connectToMongo = async (retryCount) => {
     const MAX_RETRIES = 3;
     const count = retryCount ?? 0;
     try {
-        await mongoose.connect(mongoURI, { dbName: 'stayhealthybeta1'});
+        await mongoose.connect(mongoURI);
         console.info('Connected to Mongo Successfully')
         return;
     } catch (error) {
