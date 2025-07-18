@@ -1,0 +1,138 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 900
+>>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(CARDIOLOGY CONSULTATION REPORT) Tj
+0 -40 Td
+/F2 12 Tf
+(Patient Information:) Tj
+0 -20 Td
+(Name: John Doe) Tj
+0 -15 Td
+(Age: 35 years) Tj
+0 -15 Td
+(Gender: Male) Tj
+0 -15 Td
+(Consultation Date: 02/07/2024) Tj
+0 -15 Td
+(Cardiologist: Dr. Emily Davis) Tj
+0 -15 Td
+(Department: Cardiology) Tj
+0 -30 Td
+/F1 14 Tf
+(Chief Complaint:) Tj
+0 -20 Td
+/F2 12 Tf
+(Routine cardiac health assessment) Tj
+0 -20 Td
+/F1 14 Tf
+(Physical Examination:) Tj
+0 -20 Td
+/F2 12 Tf
+(Blood Pressure: 120/80 mmHg) Tj
+0 -15 Td
+(Heart Rate: 72 bpm, regular rhythm) Tj
+0 -15 Td
+(Heart Sounds: S1, S2 normal, no murmurs) Tj
+0 -15 Td
+(Peripheral pulses: Normal) Tj
+0 -20 Td
+/F1 14 Tf
+(ECG Findings:) Tj
+0 -20 Td
+/F2 12 Tf
+(Normal sinus rhythm) Tj
+0 -15 Td
+(Rate: 72 bpm) Tj
+0 -15 Td
+(PR interval: 0.16 sec) Tj
+0 -15 Td
+(QRS duration: 0.08 sec) Tj
+0 -15 Td
+(QT interval: 0.40 sec) Tj
+0 -30 Td
+/F1 14 Tf
+(Assessment & Plan:) Tj
+0 -20 Td
+/F2 12 Tf
+(Cardiovascular system appears normal) Tj
+0 -15 Td
+(Continue healthy lifestyle) Tj
+0 -15 Td
+(Annual follow-up recommended) Tj
+0 -30 Td
+(Dr. Emily Davis, MD) Tj
+0 -15 Td
+(Board Certified Cardiologist) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 7
+0000000000 65535 f 
+0000000010 00000 n 
+0000000053 00000 n 
+0000000100 00000 n 
+0000000270 00000 n 
+0000001220 00000 n 
+0000001290 00000 n 
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+1350
+%%EOF
