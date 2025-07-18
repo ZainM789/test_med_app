@@ -19,6 +19,7 @@ const DoctorCard = ({
 
   const [showModal, setShowModal] = useState(false);
   const [appointment, setAppointment] = useState(null); // State to store a single appointment
+  const [showSuccess, setShowSuccess] = useState(false); // Success message state
   const userEmail = sessionStorage.getItem('email');
 
   // Fetch appointment for this doctor and user
@@ -56,6 +57,9 @@ const DoctorCard = ({
       if (res.ok) {
         const saved = await res.json();
         setAppointment(saved);
+        setShowSuccess(true);
+        // Hide success message after 3 seconds
+        setTimeout(() => setShowSuccess(false), 3000);
       }
     } catch (e) { /* handle error */ }
     setShowModal(false);
@@ -69,6 +73,16 @@ const DoctorCard = ({
 
   return (
     <div className="doctor-card-container">
+      {/* Success message */}
+      {showSuccess && (
+        <div className="success-message">
+          <div className="success-content">
+            <i className="fa-solid fa-check-circle"></i>
+            <span>Appointment booked successfully!</span>
+          </div>
+        </div>
+      )}
+      
       <div className="doctor-card-details-container">
         <div className="doctor-info-section">
           <div className="doctor-card-profile-image-container">

@@ -47,7 +47,7 @@ body * {
 
 .logo-text {
     font-family: 'Poppins', 'Roboto', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 800;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     background-size: 200% 200%;
@@ -62,14 +62,14 @@ body * {
 }
 
 .logo-text:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     filter: drop-shadow(0 2px 8px rgba(102, 126, 234, 0.3));
 }
 
 .logo-text::before {
     content: '🏥';
-    margin-right: 8px;
-    font-size: 1.2em;
+    margin-right: 6px;
+    font-size: 1.0em;
     animation: pulse 2s ease-in-out infinite;
 }
 

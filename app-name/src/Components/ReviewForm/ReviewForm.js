@@ -9,18 +9,68 @@ const User = ({ size, className }) => <i className={`fa-solid fa-user ${classNam
 const LogIn = ({ size, className }) => <i className={`fa-solid fa-right-to-bracket ${className}`} style={{fontSize: `${size}px`}}></i>;
 const CheckCircle = ({ size, className }) => <i className={`fa-solid fa-circle-check ${className}`} style={{fontSize: `${size}px`}}></i>;
 
-
+// Use the same doctors as in the appointment page
 const defaultConsultations = [
-  { id: 1, name: 'Dr. Jennie Lee', specialty: 'Dentist', avatar: 'https://placehold.co/60x60/ADD8E6/000000?text=JL' },
-  { id: 2, name: 'Dr. Mary Muse', specialty: 'Dentist', avatar: 'https://placehold.co/60x60/FFDAB9/000000?text=MM' },
-  { id: 3, name: 'Dr. Zainuri', specialty: 'Dentist', avatar: 'https://placehold.co/60x60/DDA0DD/000000?text=Z' },
+  { 
+    id: 1, 
+    name: 'Dr. Sarah Johnson', 
+    specialty: 'Dentist', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=sarah&backgroundColor=b6e3f4&clothingColor=262e33&eyeColor=blue&hairColor=blonde&skinColor=f8d25c&accessories=prescription02&clothing=blazerShirt'
+  },
+  { 
+    id: 2, 
+    name: 'Dr. Michael Chen', 
+    specialty: 'General Physician', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=michael&backgroundColor=c0aede&clothingColor=3c4f5c&eyeColor=brown&hairColor=black&skinColor=ae5d29&accessories=prescription01&clothing=blazerSweater'
+  },
+  { 
+    id: 3, 
+    name: 'Dr. Emily Davis', 
+    specialty: 'Dermatologist', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=emily&backgroundColor=ffd5dc&clothingColor=d08b5b&eyeColor=green&hairColor=auburn&skinColor=edb98a&accessories=sunglasses&clothing=collarSweater'
+  },
+  { 
+    id: 4, 
+    name: 'Dr. Robert Wilson', 
+    specialty: 'Gynecologist/Obstetrician', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=robert&backgroundColor=d1f2eb&clothingColor=6565b0&eyeColor=blue&hairColor=brown&skinColor=fdbcb4&accessories=prescription02&clothing=blazerShirt'
+  },
+  { 
+    id: 5, 
+    name: 'Dr. Lisa Anderson', 
+    specialty: 'ENT Specialist', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=lisa&backgroundColor=fadbd8&clothingColor=ff488e&eyeColor=brown&hairColor=red&skinColor=f8d25c&accessories=wayfarers&clothing=overall'
+  },
+  { 
+    id: 6, 
+    name: 'Dr. David Kumar', 
+    specialty: 'Homeopath', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=david&backgroundColor=e8f6f3&clothingColor=ff5722&eyeColor=brown&hairColor=black&skinColor=ae5d29&accessories=prescription01&clothing=shirtCrewNeck'
+  },
+  { 
+    id: 7, 
+    name: 'Dr. Priya Sharma', 
+    specialty: 'Ayurveda', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=priya&backgroundColor=fff3e0&clothingColor=a7c957&eyeColor=brown&hairColor=black&skinColor=d08b5b&accessories=kurt&clothing=blazerSweater'
+  }
 ];
 
 const ReviewPage = () => {
   const [consultations, setConsultations] = useState(defaultConsultations.map(d => ({ ...d, hasReviewed: false })));
+  const [filteredConsultations, setFilteredConsultations] = useState(consultations);
+  const [searchTerm, setSearchTerm] = useState('');
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const userEmail = sessionStorage.getItem('email');
+
+  // Search functionality
+  useEffect(() => {
+    const filtered = consultations.filter(doctor => 
+      doctor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      doctor.specialty.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredConsultations(filtered);
+  }, [searchTerm, consultations]);
 
   // Fetch reviews for all doctors on mount
   useEffect(() => {
@@ -100,6 +150,24 @@ const ReviewPage = () => {
       <main className="container mx-auto p-6 mt-8">
         <h1 className="text-4xl font-bold text-red-700 text-center mb-8">Reviews</h1>
 
+        {/* Search functionality */}
+        <div className="mb-6">
+          <div className="max-w-md mx-auto">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search doctors by name or specialty..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <i className="fa-solid fa-search text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-blue-100">
@@ -111,7 +179,7 @@ const ReviewPage = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {consultations.map((consultation) => (
+              {filteredConsultations.map((consultation) => (
                 <tr key={consultation.id}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
