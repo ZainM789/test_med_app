@@ -6,7 +6,7 @@ import 'reactjs-popup/dist/index.css';
 import { API_URL } from '../../../config';
 
 const defaultProfilePic =
-  "https://api.dicebear.com/7.x/avataaars/svg?seed=doctor&backgroundColor=f0f0f0&clothingColor=3c4f5c&eyeColor=blue&hairColor=brown&skinColor=fdbcb4&accessories=prescription01&clothing=blazerShirt";
+  "https://ui-avatars.com/api/?name=Doctor&background=f0f0f0&color=3c4f5c&size=120&bold=true";
 
 const DoctorCard = ({
   name = "Dr. John Doe",

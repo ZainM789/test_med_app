@@ -22,7 +22,7 @@ const BookingConsultation = () => {
                 ratings: 4.8,
                 location: "New York",
                 phone: "+1-555-0123",
-                profilePic: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah&backgroundColor=b6e3f4&clothingColor=262e33&eyeColor=blue&hairColor=blonde&skinColor=f8d25c&accessories=prescription02&clothing=blazerShirt",
+                profilePic: "https://ui-avatars.com/api/?name=Sarah+Johnson&background=b6e3f4&color=262e33&size=120&bold=true",
                 fees: "$50",
                 careerProfile: "BDS, MDS - Dentistry | Senior Consultant at City Dental"
             },
@@ -33,7 +33,7 @@ const BookingConsultation = () => {
                 ratings: 4.9,
                 location: "California",
                 phone: "+1-555-0124",
-                profilePic: "https://api.dicebear.com/7.x/avataaars/svg?seed=michael&backgroundColor=c0aede&clothingColor=3c4f5c&eyeColor=brown&hairColor=black&skinColor=ae5d29&accessories=prescription01&clothing=blazerSweater",
+                profilePic: "https://ui-avatars.com/api/?name=Michael+Chen&background=c0aede&color=3c4f5c&size=120&bold=true",
                 fees: "$60",
                 careerProfile: "MBBS, MD - Internal Medicine | Chief of Medicine"
             },
@@ -44,7 +44,7 @@ const BookingConsultation = () => {
                 ratings: 4.7,
                 location: "Texas",
                 phone: "+1-555-0125",
-                profilePic: "https://api.dicebear.com/7.x/avataaars/svg?seed=emily&backgroundColor=ffd5dc&clothingColor=d08b5b&eyeColor=green&hairColor=auburn&skinColor=edb98a&accessories=sunglasses&clothing=collarSweater",
+                profilePic: "https://ui-avatars.com/api/?name=Emily+Davis&background=ffd5dc&color=d08b5b&size=120&bold=true",
                 fees: "$75",
                 careerProfile: "MBBS, MD - Dermatology | Skin Specialist"
             },
@@ -55,7 +55,7 @@ const BookingConsultation = () => {
                 ratings: 4.9,
                 location: "Florida",
                 phone: "+1-555-0126", 
-                profilePic: "https://api.dicebear.com/7.x/avataaars/svg?seed=robert&backgroundColor=d1f2eb&clothingColor=6565b0&eyeColor=blue&hairColor=brown&skinColor=fdbcb4&accessories=prescription02&clothing=blazerShirt",
+                profilePic: "https://ui-avatars.com/api/?name=Robert+Wilson&background=d1f2eb&color=6565b0&size=120&bold=true",
                 fees: "$80",
                 careerProfile: "MBBS, MS - Obstetrics & Gynecology | Women's Health Expert"
             },
@@ -66,7 +66,7 @@ const BookingConsultation = () => {
                 ratings: 4.6,
                 location: "Illinois",
                 phone: "+1-555-0127",
-                profilePic: "https://api.dicebear.com/7.x/avataaars/svg?seed=lisa&backgroundColor=fadbd8&clothingColor=ff488e&eyeColor=brown&hairColor=red&skinColor=f8d25c&accessories=wayfarers&clothing=overall",
+                profilePic: "https://ui-avatars.com/api/?name=Lisa+Anderson&background=fadbd8&color=ff488e&size=120&bold=true",
                 fees: "$65",
                 careerProfile: "MBBS, MS - ENT | Head & Neck Surgery Specialist"
             },
@@ -77,7 +77,7 @@ const BookingConsultation = () => {
                 ratings: 4.5,
                 location: "Washington",
                 phone: "+1-555-0128",
-                profilePic: "https://api.dicebear.com/7.x/avataaars/svg?seed=david&backgroundColor=e8f6f3&clothingColor=ff5722&eyeColor=brown&hairColor=black&skinColor=ae5d29&accessories=prescription01&clothing=shirtCrewNeck",
+                profilePic: "https://ui-avatars.com/api/?name=David+Kumar&background=e8f6f3&color=ff5722&size=120&bold=true",
                 fees: "$45",
                 careerProfile: "BHMS, MD - Homeopathy | Holistic Medicine Practitioner"
             },
@@ -88,7 +88,7 @@ const BookingConsultation = () => {
                 ratings: 4.8,
                 location: "Oregon",
                 phone: "+1-555-0129",
-                profilePic: "https://api.dicebear.com/7.x/avataaars/svg?seed=priya&backgroundColor=fff3e0&clothingColor=a7c957&eyeColor=brown&hairColor=black&skinColor=d08b5b&accessories=kurt&clothing=blazerSweater",
+                profilePic: "https://ui-avatars.com/api/?name=Priya+Sharma&background=fff3e0&color=a7c957&size=120&bold=true",
                 fees: "$55",
                 careerProfile: "BAMS, MD - Ayurveda | Traditional Medicine Expert"
             }
