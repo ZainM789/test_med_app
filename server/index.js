@@ -15,13 +15,17 @@ connectToMongo();
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/appointments', require('./routes/appointments'));
 app.use('/api/reviews', require('./routes/reviews'));
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+
+// Root route - this should work now
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World! Backend is running successfully!');
 });
+
+// Static files and catch-all route (commented out since we don't have build folder)
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
   // Start the server
 app.listen(PORT, () => {
 console.log(`Server is running on port http://localhost:${PORT}`);
