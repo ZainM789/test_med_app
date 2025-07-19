@@ -32,13 +32,13 @@ const defaultConsultations = [
   { 
     id: 4, 
     name: 'Dr. Robert Wilson', 
-    specialty: 'Gynecologist/Obstetrician', 
+    specialty: 'Gynecologist/obstetrician', 
     avatar: 'https://ui-avatars.com/api/?name=Robert+Wilson&background=d1f2eb&color=6565b0&size=60&bold=true'
   },
   { 
     id: 5, 
     name: 'Dr. Lisa Anderson', 
-    specialty: 'ENT Specialist', 
+    specialty: 'Ear-nose-throat (ent) Specialist', 
     avatar: 'https://ui-avatars.com/api/?name=Lisa+Anderson&background=fadbd8&color=ff488e&size=60&bold=true'
   },
   { 
