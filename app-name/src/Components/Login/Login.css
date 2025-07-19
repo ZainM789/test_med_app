@@ -188,3 +188,40 @@ main {
 .Login-reset-btn:hover {
     background: #d92e2e;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .Login-title {
+        margin-top: 100px; /* Increased gap from navbar on mobile */
+        font-size: 2.4rem; /* Slightly smaller font on mobile */
+    }
+    
+    .Login-form-container {
+        width: 90%; /* Responsive width */
+        max-width: 400px;
+        padding: 30px 25px;
+        margin-top: 20px;
+    }
+    
+    .Login-signup {
+        font-size: 1.2rem;
+        padding: 0 20px; /* Add padding for better mobile layout */
+    }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 480px) {
+    .Login-title {
+        margin-top: 120px; /* Even more gap for very small screens */
+        font-size: 2rem;
+    }
+    
+    .Login-form-container {
+        width: 95%;
+        padding: 25px 20px;
+    }
+    
+    .Login-signup {
+        font-size: 1.1rem;
+    }
+}

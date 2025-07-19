@@ -125,4 +125,34 @@
     margin-bottom: 15px;
     font-size: 0.9rem;
   }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .profile-container {
+        margin: 100px auto 40px auto; /* Increased top margin for mobile */
+        padding: 25px 20px;
+        max-width: 90%;
+    }
+    
+    .profile-details h1 {
+        font-size: 1.6rem;
+    }
+    
+    .profile-details p {
+        font-size: 1rem;
+    }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 480px) {
+    .profile-container {
+        margin: 120px auto 40px auto; /* Even more top margin for very small screens */
+        padding: 20px 15px;
+        max-width: 95%;
+    }
+    
+    .profile-details h1 {
+        font-size: 1.5rem;
+    }
+}
   
