@@ -1,0 +1,124 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 700
+>>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(X-RAY CHEST REPORT) Tj
+0 -40 Td
+/F2 12 Tf
+(Patient Information:) Tj
+0 -20 Td
+(Name: John Doe) Tj
+0 -15 Td
+(Age: 35 years) Tj
+0 -15 Td
+(Gender: Male) Tj
+0 -15 Td
+(Study Date: 05/07/2024) Tj
+0 -15 Td
+(Referring Physician: Dr. Michael Chen) Tj
+0 -15 Td
+(Department: Radiology) Tj
+0 -30 Td
+/F1 14 Tf
+(Clinical History:) Tj
+0 -20 Td
+/F2 12 Tf
+(Routine health checkup) Tj
+0 -20 Td
+/F1 14 Tf
+(Technique:) Tj
+0 -20 Td
+/F2 12 Tf
+(PA and lateral chest X-ray) Tj
+0 -20 Td
+/F1 14 Tf
+(Findings:) Tj
+0 -20 Td
+/F2 12 Tf
+(Heart: Normal size and configuration) Tj
+0 -15 Td
+(Lungs: Clear bilateral lung fields) Tj
+0 -15 Td
+(Mediastinum: Normal) Tj
+0 -15 Td
+(Bones: No acute abnormalities) Tj
+0 -30 Td
+/F1 14 Tf
+(Impression:) Tj
+0 -20 Td
+/F2 12 Tf
+(Normal chest X-ray) Tj
+0 -30 Td
+(Radiologist: Dr. Michael Chen, MD) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 7
+0000000000 65535 f 
+0000000010 00000 n 
+0000000053 00000 n 
+0000000100 00000 n 
+0000000270 00000 n 
+0000001020 00000 n 
+0000001090 00000 n 
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+1150
+%%EOF
