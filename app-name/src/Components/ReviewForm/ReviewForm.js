@@ -168,7 +168,7 @@ const ReviewPage = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
+        <div className="bg-white p-6 rounded-lg shadow-lg table-container">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-blue-100">
               <tr>
@@ -181,22 +181,22 @@ const ReviewPage = () => {
             <tbody className="bg-white divide-y divide-gray-200">
               {filteredConsultations.map((consultation) => (
                 <tr key={consultation.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 whitespace-nowrap" data-label="Name">
                     <div className="flex items-center">
                       <img className="h-10 w-10 rounded-full" src={consultation.avatar} alt={`${consultation.name} avatar`} />
                       <div className="ml-4 text-sm font-medium text-gray-900">{consultation.name}</div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consultation.specialty}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900" data-label="Specialty">{consultation.specialty}</td>
+                  <td className="px-6 py-4 whitespace-nowrap" data-label="Provide review">
                     {!consultation.hasReviewed ? (
-                      <button onClick={() => handleGiveReview(consultation)} className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Give Review</button>
+                      <button onClick={() => handleGiveReview(consultation)} className="give-review-button">Give Review</button>
                     ) : (
-                      <span className="text-sm text-gray-500">Review Submitted</span>
+                      <span className="review-submitted-text">Review Submitted</span>
                     )}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center">
-                    {consultation.hasReviewed && <CheckCircle className="text-green-500 mx-auto" size={24} />}
+                  <td className="px-6 py-4 whitespace-nowrap text-center" data-label="Review status">
+                    {consultation.hasReviewed && <CheckCircle className="check-icon" size={24} />}
                   </td>
                 </tr>
               ))}

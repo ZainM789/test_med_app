@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 50%, #e6f3ff 100%); /* Medical blue-white gradient */
     font-family: 'Segoe UI', Arial, sans-serif;
     padding-top: 70px; /* Space for fixed navbar */
 }
@@ -23,8 +23,8 @@ body * {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); /* Clean medical white */
+    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.1); /* Medical blue shadow */
     position: fixed;
     top: 0;
     left: 0;
@@ -34,6 +34,7 @@ body * {
     box-sizing: border-box;
     height: 70px; /* Explicit height for navbar */
     min-height: 70px;
+    border-bottom: 1px solid #e8f4f8; /* Subtle medical blue border */
 }
 
 .navbar-logo {
@@ -57,7 +58,7 @@ body * {
     font-family: 'Poppins', 'Roboto', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 50%, #0f7173 100%); /* Medical blue-teal gradient */
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -114,12 +115,12 @@ body * {
 
 .navbar-link:hover,
 .navbar-link.active {
-    background: #f8f9fa;
-    color: #007bff;
+    background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%); /* Medical blue hover */
+    color: #1e3a5f; /* Medical dark blue */
 }
 
 .navbar-link.active i {
-    color: #13a3d7;
+    color: #0f7173; /* Medical teal */
 }
 
 .logout-btn {

@@ -49,9 +49,9 @@
   max-width: 380px; /* Smaller containers */
   height: 280px; /* Fixed height for all cards */
   margin: 20px auto;
-  background: #fff;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%); /* Clean medical white */
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(120, 120, 140, 0.08);
+  box-shadow: 0 2px 12px rgba(44, 90, 160, 0.08); /* Medical blue shadow */
   padding: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
   transition: box-shadow 0.18s;
@@ -61,10 +61,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid #e8f4f8; /* Subtle medical blue border */
 }
 
 .doctor-card-container:hover {
-  box-shadow: 0 6px 24px rgba(80, 80, 120, 0.13);
+  box-shadow: 0 6px 24px rgba(44, 90, 160, 0.15); /* Enhanced medical blue hover shadow */
+  transform: translateY(-2px);
 }
 
 .doctor-card-details-container {
