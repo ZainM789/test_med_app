@@ -7,6 +7,17 @@ const Navbar = () => {
   // State for authentication
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Close mobile menu when clicking on a link
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   // Logout function: clears session/local storage and reloads
   const handleLogout = () => {
@@ -24,6 +35,7 @@ const Navbar = () => {
     }
     setIsLoggedIn(false);
     setUsername('');
+    setIsMobileMenuOpen(false);
     window.location.reload();
   };
 
@@ -46,15 +58,27 @@ const Navbar = () => {
           <span className="logo-text">Medic4U</span>
         </Link>
       </div>
-      <ul className="navbar-menu">
+      
+      {/* Mobile Menu Button */}
+      <button 
+        className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+        onClick={toggleMobileMenu}
+        aria-label="Toggle mobile menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul className={`navbar-menu ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
         <li>
-          <Link to="/appointments" className="navbar-link" id="appointments-link">
+          <Link to="/appointments" className="navbar-link" id="appointments-link" onClick={closeMobileMenu}>
             <i className="fa-regular fa-calendar"></i>
             Appointments
           </Link>
         </li>
         <li>
-          <Link to="/reviews" className="navbar-link" id="reviews-link">
+          <Link to="/reviews" className="navbar-link" id="reviews-link" onClick={closeMobileMenu}>
             <i className="fa-solid fa-star"></i>
             Reviews
           </Link>
@@ -62,7 +86,7 @@ const Navbar = () => {
         
         {/* Reports Dropdown */}
         <li className="navbar-dropdown">
-          <Link to="/reports" className="navbar-link" id="reports-link">
+          <Link to="/reports" className="navbar-link" id="reports-link" onClick={closeMobileMenu}>
             <i className="fa-solid fa-file-medical"></i>
             Your Reports
           </Link>
@@ -71,13 +95,13 @@ const Navbar = () => {
         {!isLoggedIn && (
           <>
             <li>
-              <Link to="/signup" className="navbar-link" id="signup-link">
+              <Link to="/signup" className="navbar-link" id="signup-link" onClick={closeMobileMenu}>
                 <i className="fa-solid fa-user-plus"></i>
                 Sign Up
               </Link>
             </li>
             <li>
-              <Link to="/login" className="navbar-link" id="login-link">
+              <Link to="/login" className="navbar-link" id="login-link" onClick={closeMobileMenu}>
                 <i className="fa-solid fa-right-to-bracket"></i>
                 Login
               </Link>
@@ -88,14 +112,17 @@ const Navbar = () => {
         {isLoggedIn && (
           <>
             <li>
-              <Link to="/profile" className="navbar-link" id="profile-link">
+              <Link to="/profile" className="navbar-link" id="profile-link" onClick={closeMobileMenu}>
                 <i className="fa-solid fa-user"></i>
                 Welcome, {username}
               </Link>
             </li>
             <li>
               <button 
-                onClick={handleLogout} 
+                onClick={() => {
+                  handleLogout();
+                  closeMobileMenu();
+                }} 
                 className="navbar-link logout-btn" 
                 id="logout-btn"
               >

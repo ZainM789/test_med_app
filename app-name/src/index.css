@@ -10,9 +10,46 @@ body {
   min-height: 100vh;
 }
 
+/* Mobile body adjustments */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px; /* Smaller navbar height on mobile */
+  }
+}
+
 /* Ensure all page content accounts for navbar */
 * {
   box-sizing: border-box;
+}
+
+/* Global mobile responsiveness */
+@media (max-width: 768px) {
+  .container, .main-content, .page-container {
+    padding: 1rem !important;
+    margin: 0 !important;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  button {
+    min-height: 44px; /* Touch-friendly button height */
+    font-size: 1rem !important;
+  }
+  
+  input, select, textarea {
+    min-height: 44px; /* Touch-friendly input height */
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
 }
 
 code {

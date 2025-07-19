@@ -37,3 +37,40 @@
     transform: rotate(360deg);
   }
 }
+
+/* Mobile Responsive Styles for App */
+@media (max-width: 768px) {
+  .App {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .App-header {
+    padding: 20px;
+    min-height: calc(100vh - 60px); /* Account for mobile navbar */
+    font-size: calc(8px + 4vmin);
+  }
+  
+  .App-logo {
+    height: 30vmin;
+    max-height: 200px;
+  }
+  
+  /* Ensure all content is mobile-friendly */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Make all images responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

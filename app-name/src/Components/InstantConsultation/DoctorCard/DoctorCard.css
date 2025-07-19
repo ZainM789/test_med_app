@@ -469,3 +469,143 @@
   -moz-osx-font-smoothing: grayscale;
   text-shadow: none;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .doctor-card-container {
+    max-width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(120, 120, 140, 0.1);
+  }
+  
+  .doctor-card-details-container {
+    padding: 15px;
+    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .doctor-card-profile-image-container {
+    width: 60px;
+    height: 60px;
+    margin: 0 0 10px 0;
+  }
+  
+  .doctor-card-profile-image {
+    width: 58px;
+    height: 58px;
+  }
+  
+  .doctor-card-detail-name {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .doctor-card-detail-speciality {
+    font-size: 0.9rem !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .doctor-card-detail-experience {
+    font-size: 0.85rem !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .doctor-card-detail-ratings {
+    font-size: 0.85rem !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .doctor-card-detail-consultationfees {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .book-appointment-btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 10px 16px !important;
+    font-size: 0.95rem !important;
+    min-height: 44px !important;
+    margin: 0 auto !important;
+  }
+  
+  .success-message {
+    top: 80px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+  
+  /* Modal mobile styles */
+  .popup-content {
+    width: 95% !important;
+    max-width: 400px !important;
+    margin: 10px !important;
+    border-radius: 8px !important;
+  }
+  
+  .popup-overlay {
+    padding: 20px 10px !important;
+  }
+  
+  .doctorcard-popup-container {
+    padding: 20px 15px !important;
+  }
+  
+  .popup-content h2 {
+    font-size: 1.2rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .doctorcard-popup-container input,
+  .doctorcard-popup-container select,
+  .doctorcard-popup-container textarea {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    min-height: 44px !important;
+    padding: 8px 12px !important;
+  }
+  
+  .popup-content button {
+    min-height: 44px !important;
+    font-size: 1rem !important;
+    padding: 10px 20px !important;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .doctor-card-container {
+    max-width: 350px;
+    height: 260px;
+  }
+  
+  .doctor-card-details-container {
+    padding: 18px;
+    gap: 12px;
+  }
+  
+  .doctor-card-profile-image-container {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .doctor-card-profile-image {
+    width: 63px;
+    height: 63px;
+  }
+  
+  .book-appointment-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
