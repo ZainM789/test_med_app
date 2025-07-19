@@ -9,7 +9,7 @@ const User = ({ size, className }) => <i className={`fa-solid fa-user ${classNam
 const LogIn = ({ size, className }) => <i className={`fa-solid fa-right-to-bracket ${className}`} style={{fontSize: `${size}px`}}></i>;
 const CheckCircle = ({ size, className }) => <i className={`fa-solid fa-circle-check ${className}`} style={{fontSize: `${size}px`}}></i>;
 
-// Use the same doctors as in the appointment page
+// Use the same doctors as in the appointment page - expanded to 20 doctors
 const defaultConsultations = [
   { 
     id: 1, 
@@ -52,6 +52,84 @@ const defaultConsultations = [
     name: 'Dr. Priya Sharma', 
     specialty: 'Ayurveda', 
     avatar: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=fff3e0&color=a7c957&size=60&bold=true'
+  },
+  { 
+    id: 8, 
+    name: 'Dr. James Wilson', 
+    specialty: 'Cardiologist', 
+    avatar: 'https://ui-avatars.com/api/?name=James+Wilson&background=ffcccb&color=8b0000&size=60&bold=true'
+  },
+  { 
+    id: 9, 
+    name: 'Dr. Maria Rodriguez', 
+    specialty: 'Pediatrician', 
+    avatar: 'https://ui-avatars.com/api/?name=Maria+Rodriguez&background=e6e6fa&color=4b0082&size=60&bold=true'
+  },
+  { 
+    id: 10, 
+    name: 'Dr. Ahmed Hassan', 
+    specialty: 'Orthopedic Surgeon', 
+    avatar: 'https://ui-avatars.com/api/?name=Ahmed+Hassan&background=f0fff0&color=006400&size=60&bold=true'
+  },
+  { 
+    id: 11, 
+    name: 'Dr. Jennifer Lee', 
+    specialty: 'Neurologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Jennifer+Lee&background=f5f5dc&color=8b4513&size=60&bold=true'
+  },
+  { 
+    id: 12, 
+    name: 'Dr. Carlos Martinez', 
+    specialty: 'Psychiatrist', 
+    avatar: 'https://ui-avatars.com/api/?name=Carlos+Martinez&background=e0ffff&color=008b8b&size=60&bold=true'
+  },
+  { 
+    id: 13, 
+    name: 'Dr. Rachel Green', 
+    specialty: 'Ophthalmologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Rachel+Green&background=ffefd5&color=ff8c00&size=60&bold=true'
+  },
+  { 
+    id: 14, 
+    name: 'Dr. Thomas Brown', 
+    specialty: 'Urologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Thomas+Brown&background=f0f8ff&color=191970&size=60&bold=true'
+  },
+  { 
+    id: 15, 
+    name: 'Dr. Angela White', 
+    specialty: 'Endocrinologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Angela+White&background=fffacd&color=b8860b&size=60&bold=true'
+  },
+  { 
+    id: 16, 
+    name: 'Dr. Kevin Park', 
+    specialty: 'Radiologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Kevin+Park&background=f5fffa&color=2e8b57&size=60&bold=true'
+  },
+  { 
+    id: 17, 
+    name: 'Dr. Sofia Gonzalez', 
+    specialty: 'Rheumatologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Sofia+Gonzalez&background=fff0f5&color=c71585&size=60&bold=true'
+  },
+  { 
+    id: 18, 
+    name: 'Dr. Daniel Kim', 
+    specialty: 'Gastroenterologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Daniel+Kim&background=f8f8ff&color=6a5acd&size=60&bold=true'
+  },
+  { 
+    id: 19, 
+    name: 'Dr. Michelle Taylor', 
+    specialty: 'Pulmonologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Michelle+Taylor&background=fff8dc&color=cd853f&size=60&bold=true'
+  },
+  { 
+    id: 20, 
+    name: 'Dr. Alexander Davis', 
+    specialty: 'Anesthesiologist', 
+    avatar: 'https://ui-avatars.com/api/?name=Alexander+Davis&background=f0ffff&color=008080&size=60&bold=true'
   }
 ];
 
@@ -226,8 +304,8 @@ const ReviewForm = ({ doctor, onSubmit, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+    <div className="modal-overlay">
+      <div className="modal-content">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Provide Feedback for {doctor.name}</h2>
         <p className="text-gray-600 mb-6">Share your experience with {doctor.name} ({doctor.specialty}).</p>
         <form onSubmit={handleSubmit}>
@@ -235,7 +313,7 @@ const ReviewForm = ({ doctor, onSubmit, onClose }) => {
             <label htmlFor="feedback" className="block text-sm font-bold mb-2 text-gray-700">Your Feedback:</label>
             <textarea
               id="feedback"
-              className="w-full p-2 border rounded focus:outline-none focus:ring"
+              className="modal-content textarea"
               placeholder="Enter your feedback here..."
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
@@ -244,20 +322,24 @@ const ReviewForm = ({ doctor, onSubmit, onClose }) => {
           </div>
           <div className="mb-4">
             <label className="block text-sm font-bold mb-2 text-gray-700">Rating:</label>
-            {[1, 2, 3, 4, 5].map((star) => (
-              <span
-                key={star}
-                className="cursor-pointer text-2xl"
-                style={{ color: star <= rating ? 'gold' : 'gray' }}
-                onClick={() => setRating(star)}
-              >
-                &#9733;
-              </span>
-            ))}
+            <div className="star-rating">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button
+                  type="button"
+                  key={star}
+                  className="star-button"
+                  style={{ color: star <= rating ? '#fbbf24' : '#d1d5db' }}
+                  onClick={() => setRating(star)}
+                  aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
+                >
+                  ★
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="flex justify-end space-x-4">
-            <button type="button" onClick={onClose} className="px-4 py-2 border rounded hover:bg-gray-100">Cancel</button>
-            <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Submit</button>
+          <div className="modal-buttons">
+            <button type="button" onClick={onClose} className="modal-button cancel">Cancel</button>
+            <button type="submit" className="modal-button submit">Submit</button>
           </div>
         </form>
       </div>

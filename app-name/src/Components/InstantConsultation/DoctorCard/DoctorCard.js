@@ -5,6 +5,24 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { API_URL } from '../../../config';
 
+// Function to format date in a more readable format
+const formatDate = (dateString) => {
+  if (!dateString) return 'No date selected';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+
+// Function to format time slot
+const formatTimeSlot = (timeSlot) => {
+  if (!timeSlot) return 'No time slot selected';
+  return timeSlot; // Already in good format like "09:00 AM - 09:30 AM"
+};
+
 const defaultProfilePic =
   "https://ui-avatars.com/api/?name=Doctor&background=f0f0f0&color=3c4f5c&size=120&bold=true";
 
@@ -154,8 +172,8 @@ const DoctorCard = ({
                     <div className="bookedInfo">
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
-                      <p>Date: {appointment.appointmentDate || 'No date selected'}</p>
-                      <p>Time Slot: {appointment.slot || 'No time slot selected'}</p>
+                      <p>Date: {formatDate(appointment.appointmentDate)}</p>
+                      <p>Time Slot: {formatTimeSlot(appointment.slot)}</p>
                       <button onClick={() => { handleCancel(); close(); }}>
                         Cancel Appointment
                       </button>
@@ -178,8 +196,8 @@ const DoctorCard = ({
           <h4>Booked Appointment Details:</h4>
           <p><strong>Name:</strong> {appointment.name}</p>
           <p><strong>Phone:</strong> {appointment.phoneNumber}</p>
-          <p><strong>Date:</strong> {appointment.appointmentDate || 'No date selected'}</p>
-          <p><strong>Time Slot:</strong> {appointment.slot || 'No time slot selected'}</p>
+          <p><strong>Date:</strong> {formatDate(appointment.appointmentDate)}</p>
+          <p><strong>Time Slot:</strong> {formatTimeSlot(appointment.slot)}</p>
           <button onClick={handleCancel}>Cancel Appointment</button>
         </div>
       )}

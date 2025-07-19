@@ -4,6 +4,24 @@ import 'reactjs-popup/dist/index.css';
 import './DoctorCardIC.css';
 import AppointmentForm from '../AppointmentForm/AppointmentForm'
 import { v4 as uuidv4 } from 'uuid';
+
+// Function to format date in a more readable format
+const formatDate = (dateString) => {
+  if (!dateString) return 'No date selected';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+
+// Function to format time slot
+const formatTimeSlot = (timeSlot) => {
+  if (!timeSlot) return 'No time slot selected';
+  return timeSlot; // Already in good format like "09:00 AM - 09:30 AM"
+};
 const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
@@ -78,8 +96,8 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
-                      <p>Date: {appointment.appointmentDate || 'No date selected'}</p>
-                      <p>Time Slot: {appointment.slot || 'No time slot selected'}</p>
+                      <p>Date: {formatDate(appointment.appointmentDate)}</p>
+                      <p>Time Slot: {formatTimeSlot(appointment.slot)}</p>
                       <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
                     </div>
                   ))}

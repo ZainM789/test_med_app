@@ -16,6 +16,18 @@ const Login = () => {
     }
   }, [navigate]);
 
+  // Load saved password when email changes
+  useEffect(() => {
+    if (email) {
+      const savedPassword = localStorage.getItem(`password_${email}`);
+      if (savedPassword) {
+        setPassword(savedPassword);
+      }
+    } else {
+      setPassword(''); // Clear password when email is empty
+    }
+  }, [email]);
+
   const login = async (e) => {
     e.preventDefault();
     setErrMsg('');
@@ -38,6 +50,10 @@ const Login = () => {
       if (json.authtoken) {
         sessionStorage.setItem('auth-token', json.authtoken);
         sessionStorage.setItem('email', email);
+        
+        // Save password for future logins
+        localStorage.setItem(`password_${email}`, password);
+        
         navigate('/');
         window.location.reload();
       } else {
@@ -60,6 +76,9 @@ const Login = () => {
         sessionStorage.setItem('email', email);
         sessionStorage.setItem('name', 'Demo User');
         sessionStorage.setItem('role', 'patient');
+        
+        // Save password for future logins (demo mode)
+        localStorage.setItem(`password_${email}`, password);
         
         alert('✅ Demo Mode: Login successful!\n\n⚠️ Note: Backend server is offline.\nTo enable full functionality, please run "start-backend.bat" from the project folder.');
         navigate('/');

@@ -13,7 +13,7 @@ const BookingConsultation = () => {
 
     // Function to fetch doctor details from the API
     const getDoctorsDetails = () => {
-        // Sample doctor data as fallback
+        // Sample doctor data as fallback - expanded to 20 doctors
         const sampleDoctors = [
             {
                 name: "Dr. Sarah Johnson",
@@ -91,6 +91,149 @@ const BookingConsultation = () => {
                 profilePic: "https://ui-avatars.com/api/?name=Priya+Sharma&background=fff3e0&color=a7c957&size=120&bold=true",
                 fees: "$55",
                 careerProfile: "BAMS, MD - Ayurveda | Traditional Medicine Expert"
+            },
+            {
+                name: "Dr. James Wilson",
+                speciality: "Cardiologist",
+                experience: "14 years",
+                ratings: 4.9,
+                location: "Massachusetts",
+                phone: "+1-555-0130",
+                profilePic: "https://ui-avatars.com/api/?name=James+Wilson&background=ffcccb&color=8b0000&size=120&bold=true",
+                fees: "$120",
+                careerProfile: "MBBS, MD - Cardiology | Heart Specialist"
+            },
+            {
+                name: "Dr. Maria Rodriguez",
+                speciality: "Pediatrician",
+                experience: "11 years",
+                ratings: 4.8,
+                location: "Arizona",
+                phone: "+1-555-0131",
+                profilePic: "https://ui-avatars.com/api/?name=Maria+Rodriguez&background=e6e6fa&color=4b0082&size=120&bold=true",
+                fees: "$70",
+                careerProfile: "MBBS, MD - Pediatrics | Child Health Expert"
+            },
+            {
+                name: "Dr. Ahmed Hassan",
+                speciality: "Orthopedic Surgeon",
+                experience: "16 years",
+                ratings: 4.7,
+                location: "Michigan",
+                phone: "+1-555-0132",
+                profilePic: "https://ui-avatars.com/api/?name=Ahmed+Hassan&background=f0fff0&color=006400&size=120&bold=true",
+                fees: "$150",
+                careerProfile: "MBBS, MS - Orthopedics | Bone & Joint Specialist"
+            },
+            {
+                name: "Dr. Jennifer Lee",
+                speciality: "Neurologist",
+                experience: "13 years",
+                ratings: 4.9,
+                location: "Georgia",
+                phone: "+1-555-0133",
+                profilePic: "https://ui-avatars.com/api/?name=Jennifer+Lee&background=f5f5dc&color=8b4513&size=120&bold=true",
+                fees: "$140",
+                careerProfile: "MBBS, MD - Neurology | Brain & Nerve Specialist"
+            },
+            {
+                name: "Dr. Carlos Martinez",
+                speciality: "Psychiatrist",
+                experience: "10 years",
+                ratings: 4.6,
+                location: "Nevada",
+                phone: "+1-555-0134",
+                profilePic: "https://ui-avatars.com/api/?name=Carlos+Martinez&background=e0ffff&color=008b8b&size=120&bold=true",
+                fees: "$90",
+                careerProfile: "MBBS, MD - Psychiatry | Mental Health Specialist"
+            },
+            {
+                name: "Dr. Rachel Green",
+                speciality: "Ophthalmologist",
+                experience: "8 years",
+                ratings: 4.7,
+                location: "Colorado",
+                phone: "+1-555-0135",
+                profilePic: "https://ui-avatars.com/api/?name=Rachel+Green&background=ffefd5&color=ff8c00&size=120&bold=true",
+                fees: "$85",
+                careerProfile: "MBBS, MS - Ophthalmology | Eye Specialist"
+            },
+            {
+                name: "Dr. Thomas Brown",
+                speciality: "Urologist",
+                experience: "12 years",
+                ratings: 4.8,
+                location: "Virginia",
+                phone: "+1-555-0136",
+                profilePic: "https://ui-avatars.com/api/?name=Thomas+Brown&background=f0f8ff&color=191970&size=120&bold=true",
+                fees: "$100",
+                careerProfile: "MBBS, MS - Urology | Urinary System Specialist"
+            },
+            {
+                name: "Dr. Angela White",
+                speciality: "Endocrinologist",
+                experience: "9 years",
+                ratings: 4.7,
+                location: "Utah",
+                phone: "+1-555-0137",
+                profilePic: "https://ui-avatars.com/api/?name=Angela+White&background=fffacd&color=b8860b&size=120&bold=true",
+                fees: "$95",
+                careerProfile: "MBBS, MD - Endocrinology | Hormone Specialist"
+            },
+            {
+                name: "Dr. Kevin Park",
+                speciality: "Radiologist",
+                experience: "11 years",
+                ratings: 4.6,
+                location: "Minnesota",
+                phone: "+1-555-0138",
+                profilePic: "https://ui-avatars.com/api/?name=Kevin+Park&background=f5fffa&color=2e8b57&size=120&bold=true",
+                fees: "$110",
+                careerProfile: "MBBS, MD - Radiology | Medical Imaging Expert"
+            },
+            {
+                name: "Dr. Sofia Gonzalez",
+                speciality: "Rheumatologist",
+                experience: "10 years",
+                ratings: 4.8,
+                location: "North Carolina",
+                phone: "+1-555-0139",
+                profilePic: "https://ui-avatars.com/api/?name=Sofia+Gonzalez&background=fff0f5&color=c71585&size=120&bold=true",
+                fees: "$105",
+                careerProfile: "MBBS, MD - Rheumatology | Joint & Muscle Specialist"
+            },
+            {
+                name: "Dr. Daniel Kim",
+                speciality: "Gastroenterologist",
+                experience: "13 years",
+                ratings: 4.9,
+                location: "Tennessee",
+                phone: "+1-555-0140",
+                profilePic: "https://ui-avatars.com/api/?name=Daniel+Kim&background=f8f8ff&color=6a5acd&size=120&bold=true",
+                fees: "$115",
+                careerProfile: "MBBS, MD - Gastroenterology | Digestive System Expert"
+            },
+            {
+                name: "Dr. Michelle Taylor",
+                speciality: "Pulmonologist",
+                experience: "8 years",
+                ratings: 4.7,
+                location: "Alabama",
+                phone: "+1-555-0141",
+                profilePic: "https://ui-avatars.com/api/?name=Michelle+Taylor&background=fff8dc&color=cd853f&size=120&bold=true",
+                fees: "$90",
+                careerProfile: "MBBS, MD - Pulmonology | Lung & Respiratory Expert"
+            },
+            {
+                name: "Dr. Alexander Davis",
+                speciality: "Anesthesiologist",
+                experience: "15 years",
+                ratings: 4.8,
+                location: "South Carolina",
+                phone: "+1-555-0142",
+                profilePic: "https://ui-avatars.com/api/?name=Alexander+Davis&background=f0ffff&color=008080&size=120&bold=true",
+                fees: "$125",
+                careerProfile: "MBBS, MD - Anesthesiology | Surgical Support Specialist"
             }
         ];
 
