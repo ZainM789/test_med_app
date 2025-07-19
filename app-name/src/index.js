@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+// import './index.css'; // Temporarily commented out to bypass CSS encoding issues
 import App from './App'; // App already imports and uses BrowserRouter internally
 import reportWebVitals from './reportWebVitals';
 
